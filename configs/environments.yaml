@@ -1,0 +1,393 @@
+# 环境配置 (Environments Configuration)
+# 定义不同操作系统和硬件平台的环境配置
+# Version: 1.0.0
+
+environments:
+  # ========================================
+  # macOS Intel (x86_64)
+  # ========================================
+  - id: "macos-intel"
+    name: "macOS Intel"
+    name_en: "macOS Intel (x86_64)"
+    os: "Darwin"
+    architecture: "x86_64"
+
+    python:
+      min_version: "3.9"
+      recommended_version: "3.11"
+      install_method: "homebrew"
+      install_command: "brew install python@3.11"
+
+    uv:
+      install_method: "curl"
+      install_command: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+
+    stages:
+      stage3:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage3]"'
+        notes: "CPU环境，所有项目均可运行"
+
+      stage4:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage4-cpu]"'
+        notes: "仅CPU环境，训练速度较慢，推荐使用云端GPU"
+
+      stage5:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage5]"'
+        notes: "使用API调用模式，本地LLM推理需32GB+内存"
+
+    setup_guide: "docs/cross-platform/setup-macos-intel.md"
+
+  # ========================================
+  # macOS Apple Silicon (ARM64)
+  # ========================================
+  - id: "macos-arm64"
+    name: "macOS Apple Silicon"
+    name_en: "macOS Apple Silicon (M1/M2/M3)"
+    os: "Darwin"
+    architecture: "arm64"
+
+    python:
+      min_version: "3.9"
+      recommended_version: "3.11"
+      install_method: "homebrew"
+      install_command: "brew install python@3.11"
+
+    uv:
+      install_method: "curl"
+      install_command: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+
+    stages:
+      stage3:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage3]"'
+        notes: "CPU环境，性能优秀"
+
+      stage4:
+        available: true
+        gpu_support: true
+        gpu_type: "MPS"
+        install_command: 'uv pip install -e ".[stage4-mps]"'
+        notes: "支持Metal Performance Shaders (MPS)加速，训练速度提升3-5倍"
+
+      stage5:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage5]"'
+        notes: "MPS加速对LLM支持有限，推荐使用API模式"
+
+    setup_guide: "docs/cross-platform/setup-macos-arm64.md"
+
+  # ========================================
+  # Linux (Ubuntu/CentOS)
+  # ========================================
+  - id: "linux"
+    name: "Linux"
+    name_en: "Linux (Ubuntu 20.04+ / CentOS 8+)"
+    os: "Linux"
+    architecture: "x86_64"
+
+    python:
+      min_version: "3.9"
+      recommended_version: "3.11"
+      install_method: "apt/yum"
+      install_command: |
+        # Ubuntu/Debian
+        sudo apt update
+        sudo apt install python3.11 python3.11-venv python3.11-dev
+
+        # CentOS/RHEL
+        sudo yum install python3.11 python3.11-devel
+
+    uv:
+      install_method: "curl"
+      install_command: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+
+    stages:
+      stage3:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage3]"'
+        notes: "CPU环境"
+
+      stage4:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage4-gpu]"'
+        notes: "支持NVIDIA CUDA加速（需安装CUDA 11.8+）"
+        prerequisites:
+          - "NVIDIA GPU驱动 ≥ 525.60.13"
+          - "CUDA Toolkit 11.8 或 12.1"
+          - "cuDNN 8.6+"
+
+      stage5:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage5]"'
+        notes: "GPU加速LLM推理，但需要32GB+显存"
+
+    setup_guide: "docs/cross-platform/setup-linux.md"
+
+  # ========================================
+  # Windows Native
+  # ========================================
+  - id: "windows-native"
+    name: "Windows原生"
+    name_en: "Windows 10/11 Native"
+    os: "Windows"
+    architecture: "AMD64"
+
+    python:
+      min_version: "3.9"
+      recommended_version: "3.11"
+      install_method: "microsoft_store"
+      install_command: "从Microsoft Store安装Python 3.11"
+
+    uv:
+      install_method: "powershell"
+      install_command: 'powershell -c "irm https://astral.sh/uv/install.ps1 | iex"'
+
+    stages:
+      stage3:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage3]"'
+        notes: "CPU环境"
+
+      stage4:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage4-gpu]"'
+        notes: "支持NVIDIA CUDA加速（需安装CUDA 11.8+）"
+        prerequisites:
+          - "NVIDIA GPU驱动 ≥ 525.60.13"
+          - "CUDA Toolkit 11.8 或 12.1"
+          - "Visual Studio 2019/2022 (C++工具)"
+
+      stage5:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage5]"'
+        notes: "推荐使用WSL2以获得更好的兼容性"
+
+    setup_guide: "docs/cross-platform/setup-windows-native.md"
+
+  # ========================================
+  # Windows WSL2
+  # ========================================
+  - id: "wsl2"
+    name: "Windows WSL2"
+    name_en: "Windows Subsystem for Linux 2"
+    os: "Linux"  # WSL2运行Linux内核
+    architecture: "x86_64"
+
+    python:
+      min_version: "3.9"
+      recommended_version: "3.11"
+      install_method: "apt"
+      install_command: |
+        sudo apt update
+        sudo apt install python3.11 python3.11-venv python3.11-dev
+
+    uv:
+      install_method: "curl"
+      install_command: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+
+    stages:
+      stage3:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage3]"'
+        notes: "CPU环境，推荐WSL2使用"
+
+      stage4:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage4-gpu]"'
+        notes: "WSL2支持CUDA加速（需NVIDIA驱动 ≥510.60.02）"
+        prerequisites:
+          - "Windows 10 21H2+ 或 Windows 11"
+          - "NVIDIA GPU驱动 (Windows宿主机安装)"
+          - "WSL2 CUDA支持（无需在WSL内安装CUDA）"
+
+      stage5:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage5]"'
+        notes: "推荐WSL2环境，兼容性最佳"
+
+    setup_guide: "docs/cross-platform/setup-windows-wsl2.md"
+
+  # ========================================
+  # Cloud GPU (Google Colab / AWS / Azure)
+  # ========================================
+  - id: "cloud-gpu"
+    name: "云端GPU"
+    name_en: "Cloud GPU (Colab/AWS/Azure)"
+    os: "Linux"
+    architecture: "x86_64"
+
+    python:
+      min_version: "3.9"
+      recommended_version: "3.11"
+      install_method: "preinstalled"
+      install_command: "通常预装，无需手动安装"
+
+    uv:
+      install_method: "curl"
+      install_command: "curl -LsSf https://astral.sh/uv/install.sh | sh"
+
+    stages:
+      stage3:
+        available: true
+        gpu_support: false
+        install_command: 'uv pip install -e ".[stage3]"'
+        notes: "不需要GPU"
+
+      stage4:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage4-gpu]"'
+        notes: "云端GPU加速（T4/V100/A100），训练速度10-50倍提升"
+        prerequisites:
+          - "Google Colab: 免费T4 GPU (15GB)"
+          - "AWS EC2: p3.2xlarge (V100 16GB)"
+          - "Azure: NC6s_v3 (V100 16GB)"
+
+      stage5:
+        available: true
+        gpu_support: true
+        gpu_type: "CUDA"
+        install_command: 'uv pip install -e ".[stage5]"'
+        notes: "云端LLM推理，推荐使用A100 (40GB/80GB)"
+
+    setup_guide: "docs/cross-platform/setup-cloud-gpu.md"
+
+# ========================================
+# 硬件最低要求 (Minimum Hardware Requirements)
+# ========================================
+hardware_requirements:
+  stage3:
+    cpu: "双核 2.0GHz+"
+    memory: "8GB RAM"
+    disk: "5GB"
+    gpu: "不需要"
+
+  stage4:
+    cpu: "四核 3.0GHz+"
+    memory: "16GB RAM (32GB推荐)"
+    disk: "20GB"
+    gpu: "推荐 (8GB+ VRAM)"
+
+  stage5:
+    cpu: "四核 3.0GHz+"
+    memory: "16GB RAM (32GB推荐用于本地LLM)"
+    disk: "30GB (含LLM模型)"
+    gpu: "可选 (8GB+ VRAM)"
+
+# ========================================
+# 常见问题排查 (Common Issues)
+# ========================================
+troubleshooting:
+  - issue: "uv安装失败"
+    platforms: ["all"]
+    solution: |
+      1. 检查网络连接
+      2. 使用国内镜像：export UV_INDEX_URL=https://mirrors.aliyun.com/pypi/simple/
+      3. 手动下载安装包：https://github.com/astral-sh/uv/releases
+
+  - issue: "虚拟环境创建失败"
+    platforms: ["all"]
+    solution: |
+      1. 确保Python版本≥3.9
+      2. 检查磁盘空间是否充足
+      3. 尝试手动创建：python3 -m venv .venv
+
+  - issue: "CUDA not available"
+    platforms: ["linux", "windows-native", "wsl2"]
+    solution: |
+      1. 检查GPU驱动：nvidia-smi
+      2. 安装CUDA Toolkit 11.8+
+      3. 验证PyTorch CUDA：python -c "import torch; print(torch.cuda.is_available())"
+
+  - issue: "MPS not available"
+    platforms: ["macos-arm64"]
+    solution: |
+      1. 确保macOS ≥12.3
+      2. 安装PyTorch nightly：pip install --pre torch torchvision --index-url https://download.pytorch.org/whl/nightly/cpu
+      3. 验证MPS：python -c "import torch; print(torch.backends.mps.is_available())"
+
+  - issue: "内存不足 (Out of Memory)"
+    platforms: ["all"]
+    solution: |
+      1. 减小batch_size
+      2. 使用梯度累积
+      3. 使用混合精度训练(fp16)
+      4. 使用模型量化
+      5. 考虑使用云端GPU
+
+# ========================================
+# 推荐学习路径 (Recommended Learning Path)
+# ========================================
+learning_paths:
+  - profile: "本地CPU开发者"
+    hardware: "8GB RAM, 无GPU"
+    recommendations:
+      - stage: "stage3"
+        feasibility: "✅ 完全可行"
+        notes: "所有项目均可顺利运行"
+      - stage: "stage4"
+        feasibility: "⚠️  部分可行"
+        notes: "可运行，但训练速度慢（5-10倍），推荐使用Colab"
+      - stage: "stage5"
+        feasibility: "✅ 使用API模式"
+        notes: "通过API调用云端LLM（OpenAI/DeepSeek）"
+
+  - profile: "macOS M系列芯片"
+    hardware: "16GB RAM, Apple GPU (MPS)"
+    recommendations:
+      - stage: "stage3"
+        feasibility: "✅ 完全可行"
+        notes: "性能优秀"
+      - stage: "stage4"
+        feasibility: "✅ 完全可行"
+        notes: "MPS加速，训练速度提升3-5倍"
+      - stage: "stage5"
+        feasibility: "✅ API + 本地小模型"
+        notes: "可运行7B模型，推荐使用API"
+
+  - profile: "NVIDIA GPU用户"
+    hardware: "32GB RAM, RTX 3080 (10GB VRAM)"
+    recommendations:
+      - stage: "stage3"
+        feasibility: "✅ 完全可行"
+      - stage: "stage4"
+        feasibility: "✅ 完全可行"
+        notes: "CUDA加速，训练速度提升10-20倍"
+      - stage: "stage5"
+        feasibility: "✅ 本地LLM推理"
+        notes: "可运行7B-13B量化模型"
+
+  - profile: "云端GPU用户"
+    hardware: "Colab T4 / AWS p3.2xlarge"
+    recommendations:
+      - stage: "stage3"
+        feasibility: "✅ 完全可行"
+      - stage: "stage4"
+        feasibility: "✅ 完全可行"
+        notes: "最佳选择，训练速度最快"
+      - stage: "stage5"
+        feasibility: "✅ 完全可行"
+        notes: "A100可运行70B模型"
