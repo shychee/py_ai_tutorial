@@ -28,6 +28,9 @@ ENV/
 env/
 .virtualenv/
 
+# Allow scripts/env directory
+!scripts/env/
+
 # Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb_cache

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_cache
+
+# Outputs
+outputs/models/*.pkl
+outputs/models/*.pth
+outputs/models/*.h5
+outputs/logs/*.log
+
+# Data (large files)
+data/*.csv
+data/*.parquet
+
+# Keep directory structure
+!outputs/models/.gitkeep
+!outputs/figures/.gitkeep
+!outputs/reports/.gitkeep
+!outputs/logs/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
