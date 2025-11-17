@@ -12,13 +12,13 @@
         <meta name="author" content="shychee">
       
       
-        <link rel="canonical" href="https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/">
+        <link rel="canonical" href="https://shychee.github.io/py_ai_tutorial/stage3/projects/p03-finance/">
       
       
-        <link rel="prev" href="../p03-finance/">
+        <link rel="prev" href="../p02-ecommerce/">
       
       
-        <link rel="next" href="../p05-retail/">
+        <link rel="next" href="../p04-telecom/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>P04：通讯客户响应 - Python AI 教程：从机器学习到大模型</title>
+        <title>P03：银行营销分析 - Python AI 教程：从机器学习到大模型</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#p04" class="md-skip">
+        <a href="#p03-bank-marketing-classification" class="md-skip">
           跳转至
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              P04：通讯客户响应
+              P03：银行营销分析
             
           </span>
         </div>
@@ -1156,34 +1156,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../p03-finance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P03：银行营销分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1203,7 +1175,7 @@
   <span class="md-ellipsis">
     
   
-    P04：通讯客户响应
+    P03：银行营销分析
   
 
     
@@ -1221,7 +1193,7 @@
   <span class="md-ellipsis">
     
   
-    P04：通讯客户响应
+    P03：银行营销分析
   
 
     
@@ -1250,19 +1222,41 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 项目概述
+        项目概述
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📋 项目概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        项目目标
+        项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#17-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据字段 (17个特征 + 1个目标)
       
     </span>
   </a>
@@ -1270,10 +1264,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        业务价值
+        类别分布
       
     </span>
   </a>
@@ -1286,22 +1280,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📊 数据集说明
+        快速开始
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📊 数据集说明">
+    <nav class="md-nav" aria-label="快速开始">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据格式
+        1. 环境准备
       
     </span>
   </a>
@@ -1309,10 +1303,60 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 运行分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 查看结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心字段
+        核心算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-logistic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 逻辑回归 (Logistic Regression)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 决策树 (Decision Tree)
       
     </span>
   </a>
@@ -1328,19 +1372,69 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 学习要点
+        特征工程
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🎯 学习要点">
+    <nav class="md-nav" aria-label="特征工程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 数值特征处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 类别特征处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 特征选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据分析技能
+        模型评估
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 混淆矩阵 (Confusion Matrix)
       
     </span>
   </a>
@@ -1348,10 +1442,49 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 评估指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 类别不平衡处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        机器学习技能
+        业务应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="业务应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 营销策略优化
       
     </span>
   </a>
@@ -1359,10 +1492,82 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 客户细分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. A/B测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工程实践
+        扩展思考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="扩展思考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 特征工程优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 模型优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 业务优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 进阶分析
       
     </span>
   </a>
@@ -1378,19 +1583,19 @@
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 快速开始
+        常见问题
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🚀 快速开始">
+    <nav class="md-nav" aria-label="常见问题">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#q1-duration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        环境要求
+        Q1: 为什么不能使用duration特征?
       
     </span>
   </a>
@@ -1398,10 +1603,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1jupyter-notebook" class="md-nav__link">
+  <a href="#q2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式 1：Jupyter Notebook（推荐新手）
+        Q2: 如何处理类别不平衡?
       
     </span>
   </a>
@@ -1409,10 +1614,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2python" class="md-nav__link">
+  <a href="#q3-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式 2：Python 脚本（推荐有经验者）
+        Q3: 逻辑回归 vs 决策树如何选择?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: 如何评估模型是否过拟合?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: 模型部署后如何监控?
       
     </span>
   </a>
@@ -1425,22 +1652,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📈 预期结果
+        参考资料
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📈 预期结果">
+    <nav class="md-nav" aria-label="参考资料">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分析结果
+        算法原理
       
     </span>
   </a>
@@ -1451,7 +1689,7 @@
   <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可视化输出
+        类别不平衡
       
     </span>
   </a>
@@ -1462,7 +1700,7 @@
   <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
-        策略建议
+        模型评估
       
     </span>
   </a>
@@ -1478,29 +1716,7 @@
   <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📚 项目文件
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎓 相关资源
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔗 其他项目
+        更新日志
       
     </span>
   </a>
@@ -1511,6 +1727,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p04-telecom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P04：通讯客户响应
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2512,19 +2756,41 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📋 项目概述
+        项目概述
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📋 项目概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        项目目标
+        项目结构
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据说明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数据说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#17-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据字段 (17个特征 + 1个目标)
       
     </span>
   </a>
@@ -2532,10 +2798,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        业务价值
+        类别分布
       
     </span>
   </a>
@@ -2548,22 +2814,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📊 数据集说明
+        快速开始
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📊 数据集说明">
+    <nav class="md-nav" aria-label="快速开始">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据格式
+        1. 环境准备
       
     </span>
   </a>
@@ -2571,10 +2837,60 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 运行分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 查看结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        核心字段
+        核心算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="核心算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-logistic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 逻辑回归 (Logistic Regression)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 决策树 (Decision Tree)
       
     </span>
   </a>
@@ -2590,19 +2906,69 @@
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 学习要点
+        特征工程
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🎯 学习要点">
+    <nav class="md-nav" aria-label="特征工程">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 数值特征处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 类别特征处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 特征选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       
-        数据分析技能
+        模型评估
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型评估">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-confusion-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 混淆矩阵 (Confusion Matrix)
       
     </span>
   </a>
@@ -2610,10 +2976,49 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 评估指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 类别不平衡处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       
-        机器学习技能
+        业务应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="业务应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 营销策略优化
       
     </span>
   </a>
@@ -2621,10 +3026,82 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#2_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 客户细分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. A/B测试
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工程实践
+        扩展思考
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="扩展思考">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 特征工程优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 模型优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 业务优化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 进阶分析
       
     </span>
   </a>
@@ -2640,19 +3117,19 @@
   <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 快速开始
+        常见问题
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🚀 快速开始">
+    <nav class="md-nav" aria-label="常见问题">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#q1-duration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        环境要求
+        Q1: 为什么不能使用duration特征?
       
     </span>
   </a>
@@ -2660,10 +3137,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1jupyter-notebook" class="md-nav__link">
+  <a href="#q2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式 1：Jupyter Notebook（推荐新手）
+        Q2: 如何处理类别不平衡?
       
     </span>
   </a>
@@ -2671,10 +3148,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2python" class="md-nav__link">
+  <a href="#q3-vs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        方式 2：Python 脚本（推荐有经验者）
+        Q3: 逻辑回归 vs 决策树如何选择?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q4: 如何评估模型是否过拟合?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q5: 模型部署后如何监控?
       
     </span>
   </a>
@@ -2687,22 +3186,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📈 预期结果
+        参考资料
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📈 预期结果">
+    <nav class="md-nav" aria-label="参考资料">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据集
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       
-        分析结果
+        算法原理
       
     </span>
   </a>
@@ -2713,7 +3223,7 @@
   <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可视化输出
+        类别不平衡
       
     </span>
   </a>
@@ -2724,7 +3234,7 @@
   <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
       
-        策略建议
+        模型评估
       
     </span>
   </a>
@@ -2740,29 +3250,7 @@
   <a href="#_17" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📚 项目文件
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎓 相关资源
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔗 其他项目
+        更新日志
       
     </span>
   </a>
@@ -2789,180 +3277,325 @@
   
 
 
-<h1 id="p04">项目P04：通讯公司客户响应速度提升<a class="headerlink" href="#p04" title="Permanent link">&para;</a></h1>
-<h2 id="_1">📋 项目概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>某通讯运营商面临日益激烈的市场竞争，客户流失率逐年上升。本项目通过 RFM 分析和机器学习模型，帮助公司识别高价值客户和潜在流失客户，从而制定针对性的营销策略。</p>
-<h3 id="_2">项目目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>RFM 分析</strong>：通过最近消费时间(Recency)、消费频率(Frequency)、消费金额(Monetary)三个维度对客户进行价值评估</li>
-<li><strong>客户细分</strong>：基于 RFM 模型将客户划分为不同群体(高价值客户、流失风险客户等)</li>
-<li><strong>流失预测</strong>：构建机器学习模型预测客户流失概率，识别高风险客户</li>
-<li><strong>策略建议</strong>：为不同客户群体提供差异化的营销策略建议</li>
-</ol>
-<h3 id="_3">业务价值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>✅ 识别高价值客户，提供 VIP 服务，提升客户满意度和忠诚度</li>
-<li>✅ 预测流失风险，提前干预，降低客户流失率</li>
-<li>✅ 优化资源分配，将营销预算集中在高 ROI 客户群体</li>
-<li>✅ 提升客户响应速度，改善整体服务水平</li>
-</ul>
-<h2 id="_4">📊 数据集说明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">数据格式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>文件名</strong>: <code>telecom_customer_data.csv</code></li>
-<li><strong>文件大小</strong>: 约 25 MB</li>
-<li><strong>样本数量</strong>: 约 100,000 条客户记录</li>
-<li><strong>数据周期</strong>: 2023年1月 - 2024年12月 (24个月)</li>
-<li><strong>流失率</strong>: 约 15%（行业平均水平）</li>
-</ul>
-<h3 id="_6">核心字段<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>字段名</th>
-<th>类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>customer_id</td>
-<td>string</td>
-<td>客户唯一标识符</td>
-</tr>
-<tr>
-<td>last_transaction_date</td>
-<td>date</td>
-<td>最后一次交易日期</td>
-</tr>
-<tr>
-<td>transaction_count</td>
-<td>int</td>
-<td>交易次数(24个月内)</td>
-</tr>
-<tr>
-<td>total_amount</td>
-<td>float</td>
-<td>总消费金额(元)</td>
-</tr>
-<tr>
-<td>churn</td>
-<td>int</td>
-<td>是否流失(0=未流失, 1=已流失)</td>
-</tr>
-<tr>
-<td>complaint_count</td>
-<td>int</td>
-<td>投诉次数</td>
-</tr>
-<tr>
-<td>service_call_count</td>
-<td>int</td>
-<td>客服呼叫次数</td>
-</tr>
-</tbody>
-</table>
-<p>详细字段说明请查看<a href="../../../../projects/stage3/p04-telecom/README.md">完整项目文档</a></p>
-<h2 id="_7">🎯 学习要点<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>本项目涵盖以下核心技能：</p>
-<h3 id="_8">数据分析技能<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<ul>
-<li>RFM 客户价值分析</li>
-<li>客户细分与聚类（K-means）</li>
-<li>数据可视化（客户分布图、价值矩阵）</li>
-</ul>
-<h3 id="_9">机器学习技能<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<ul>
-<li>分类模型构建（逻辑回归、随机森林）</li>
-<li>类别不平衡处理（SMOTE 过采样）</li>
-<li>模型评估（混淆矩阵、ROC/AUC）</li>
-</ul>
-<h3 id="_10">工程实践<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<ul>
-<li>模块化代码设计（数据加载、特征工程、模型训练分离）</li>
-<li>配置文件管理（YAML）</li>
-<li>日志记录与错误处理</li>
-</ul>
-<h2 id="_11">🚀 快速开始<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<h3 id="_12">环境要求<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Python ≥3.9（推荐 3.11+）</li>
-<li>内存：至少 4GB（推荐 8GB+）</li>
-<li>CPU 即可运行（无需 GPU）</li>
-</ul>
-<h3 id="1jupyter-notebook">方式 1：Jupyter Notebook（推荐新手）<a class="headerlink" href="#1jupyter-notebook" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. 安装依赖</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[stage3]&quot;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 2. 启动 Jupyter Lab</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>jupyter<span class="w"> </span>lab
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 3. 打开 notebooks/stage3/p04-telecom-analysis.ipynb</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># 按顺序运行每个 cell</span>
+<h1 id="p03-bank-marketing-classification">P03 银行营销预测 (Bank Marketing Classification)<a class="headerlink" href="#p03-bank-marketing-classification" title="Permanent link">&para;</a></h1>
+<h2 id="_1">项目概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本项目基于葡萄牙银行的真实营销数据集，使用机器学习分类模型预测客户是否会订购定期存款产品。这是一个经典的二分类问题，适合学习逻辑回归和决策树等基础分类算法。</p>
+<p><strong>学习目标</strong>:
+- 理解二分类问题的建模流程
+- 掌握逻辑回归(Logistic Regression)和决策树(Decision Tree)算法
+- 学习特征工程：数值特征标准化、类别特征编码
+- 掌握模型评估指标：准确率、精确率、召回率、F1、AUC-ROC
+- 理解类别不平衡问题及处理方法</p>
+<p><strong>数据来源</strong>: UCI Machine Learning Repository - Bank Marketing Dataset
+<strong>数据规模</strong>: 45,211条记录, 17个特征, 1个目标变量
+<strong>业务场景</strong>: 银行电话营销，预测客户是否会订购定期存款</p>
+<hr />
+<h2 id="_2">项目结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>p03-bank-marketing/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── README.md              # 项目说明文档
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── pyproject.toml         # 依赖配置
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── src/
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── __init__.py
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   └── analyze.py         # 分类分析主脚本
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>├── notebooks/
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│   └── analysis.ipynb     # 交互式教程
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>├── configs/
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│   └── default.yaml       # 配置文件
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>└── outputs/               # 自动生成
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    ├── analysis.log       # 运行日志
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    ├── models/            # 模型文件
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    │   ├── logistic_model.pkl
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    │   └── tree_model.pkl
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    ├── figures/           # 可视化图表
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    │   ├── confusion_matrix.png
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    │   ├── roc_curve.png
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    │   ├── feature_importance.png
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    │   └── correlation_heatmap.png
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    └── reports/
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>        └── classification_report.md
 </span></code></pre></div>
-<h3 id="2python">方式 2：Python 脚本（推荐有经验者）<a class="headerlink" href="#2python" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 1. 进入项目目录</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>projects/stage3/p04-telecom
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 2. 运行分析脚本</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>python<span class="w"> </span>src/analyze.py<span class="w"> </span>--config<span class="w"> </span>configs/default.yaml
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># 3. 查看输出结果</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>ls<span class="w"> </span>outputs/
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># - figures/          # 可视化图表</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># - reports/          # 分析报告</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># - models/           # 训练好的模型</span>
-</span></code></pre></div>
-<h2 id="_13">📈 预期结果<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
-<p>完成项目后，你将获得：</p>
-<h3 id="_14">分析结果<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<hr />
+<h2 id="_3">数据说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="17-1">数据字段 (17个特征 + 1个目标)<a class="headerlink" href="#17-1" title="Permanent link">&para;</a></h3>
+<h4 id="demographic">客户信息 (Demographic)<a class="headerlink" href="#demographic" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>客户价值分层</strong>：将客户分为 8-10 个细分群体</li>
-<li><strong>流失预测模型</strong>：AUC ≥ 0.80，召回率 ≥ 0.70</li>
-<li><strong>高价值客户占比</strong>：识别出约 20% 的高价值客户（贡献 80% 收入）</li>
+<li><code>age</code>: 年龄 (数值型)</li>
+<li><code>job</code>: 职业 (类别型: admin., blue-collar, entrepreneur, housemaid, management, retired, self-employed, services, student, technician, unemployed, unknown)</li>
+<li><code>marital</code>: 婚姻状况 (类别型: divorced, married, single)</li>
+<li><code>education</code>: 教育程度 (类别型: primary, secondary, tertiary, unknown)</li>
 </ul>
-<h3 id="_15">可视化输出<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<h4 id="account">账户信息 (Account)<a class="headerlink" href="#account" title="Permanent link">&para;</a></h4>
 <ul>
-<li>RFM 价值分布热力图</li>
-<li>客户生命周期曲线</li>
-<li>流失风险概率分布图</li>
-<li>特征重要性排序图</li>
+<li><code>default</code>: 是否有信用违约 (类别型: yes, no)</li>
+<li><code>balance</code>: 账户余额 (数值型, 欧元)</li>
+<li><code>housing</code>: 是否有住房贷款 (类别型: yes, no)</li>
+<li><code>loan</code>: 是否有个人贷款 (类别型: yes, no)</li>
 </ul>
-<h3 id="_16">策略建议<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<p>针对不同客户群体的营销策略建议文档</p>
-<h2 id="_17">📚 项目文件<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
-<p>完整项目代码位于：<code>projects/stage3/p04-telecom/</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>p04-telecom/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── README.md              # 完整项目文档
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── src/                   # 源代码
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   ├── analyze.py         # 主分析脚本
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   ├── data/              # 数据加载模块
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   ├── models/            # 模型模块（RFM、流失预测）
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   └── utils/             # 工具函数
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>├── notebooks/             # Jupyter Notebook 教学版
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   └── analysis.ipynb
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── configs/               # 配置文件
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│   └── default.yaml
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>├── tests/                 # 单元测试
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>└── outputs/               # 输出目录（生成）
-</span></code></pre></div>
-<h2 id="_18">🎓 相关资源<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<h4 id="campaign">营销活动信息 (Campaign)<a class="headerlink" href="#campaign" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="../../">阶段3：机器学习与数据挖掘</a></li>
-<li><a href="../../02-pandas-practice/">M02：Pandas 实战</a></li>
-<li><a href="../../04-ml-advanced/">M04：机器学习进阶</a></li>
-<li><a href="../../../../projects/stage3/p04-telecom/">完整项目代码</a></li>
+<li><code>contact</code>: 联系方式 (类别型: cellular, telephone, unknown)</li>
+<li><code>day</code>: 最后联系日期 (数值型, 1-31)</li>
+<li><code>month</code>: 最后联系月份 (类别型: jan, feb, mar, ..., dec)</li>
+<li><code>duration</code>: 最后通话时长 (数值型, 秒) ⚠️ 注意：这个特征在实际预测时不可用(只有通话后才知道时长)</li>
+<li><code>campaign</code>: 本次营销活动联系次数 (数值型)</li>
+<li><code>pdays</code>: 距离上次联系天数 (数值型, -1表示未联系过)</li>
+<li><code>previous</code>: 上次营销活动联系次数 (数值型)</li>
+<li><code>poutcome</code>: 上次营销结果 (类别型: failure, other, success, unknown)</li>
 </ul>
-<h2 id="_19">🔗 其他项目<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<h4 id="target">目标变量 (Target)<a class="headerlink" href="#target" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="../p01-healthcare/">P01：医疗数据分析</a></li>
-<li><a href="../p02-ecommerce/">P02：服装零售分析</a></li>
-<li><a href="../p03-finance/">P03：银行营销分析</a></li>
-<li><strong>P04：通讯客户响应</strong>（当前）</li>
-<li><a href="../p05-retail/">P05：零售超市分析</a></li>
+<li><code>y</code>: 是否订购定期存款 (类别型: yes=1, no=0)</li>
+</ul>
+<h3 id="_4">类别分布<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>正样本 (yes)</strong>: ~11.7% (约5,289条)</li>
+<li><strong>负样本 (no)</strong>: ~88.3% (约39,922条)</li>
+<li><strong>类别不平衡比</strong>: 约 1:8 ⚠️ 需要特殊处理</li>
 </ul>
 <hr />
-<p><strong>开始学习？</strong> 查看<a href="../../../../projects/stage3/p04-telecom/README.md">完整项目文档</a>或直接运行 Notebook！</p>
+<h2 id="_5">快速开始<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 环境准备<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 使用 uv 运行(推荐)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>uv<span class="w"> </span>run<span class="w"> </span>--no-project<span class="w"> </span>--with<span class="w"> </span>pandas<span class="w"> </span>--with<span class="w"> </span>numpy<span class="w"> </span>--with<span class="w"> </span>scikit-learn<span class="w"> </span>--with<span class="w"> </span>matplotlib<span class="w"> </span>--with<span class="w"> </span>seaborn<span class="w"> </span>--with<span class="w"> </span>pyyaml<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>python<span class="w"> </span>src/analyze.py<span class="w"> </span>--config<span class="w"> </span>configs/default.yaml
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># 或安装依赖后运行</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>scikit-learn<span class="w"> </span>matplotlib<span class="w"> </span>seaborn<span class="w"> </span>pyyaml
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>python<span class="w"> </span>src/analyze.py<span class="w"> </span>--config<span class="w"> </span>configs/default.yaml
+</span></code></pre></div>
+<h3 id="2">2. 运行分析<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 使用默认配置</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>src/analyze.py<span class="w"> </span>--config<span class="w"> </span>configs/default.yaml
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 交互式教程</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>jupyter<span class="w"> </span>notebook<span class="w"> </span>notebooks/analysis.ipynb
+</span></code></pre></div>
+<h3 id="3">3. 查看结果<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p>分析完成后查看:
+- <code>outputs/reports/classification_report.md</code> - 详细评估报告
+- <code>outputs/figures/</code> - 可视化图表
+- <code>outputs/models/</code> - 训练好的模型文件
+- <code>outputs/analysis.log</code> - 运行日志</p>
+<hr />
+<h2 id="_6">核心算法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1-logistic-regression">1. 逻辑回归 (Logistic Regression)<a class="headerlink" href="#1-logistic-regression" title="Permanent link">&para;</a></h3>
+<p><strong>原理</strong>: 线性模型 + Sigmoid激活函数，输出概率值</p>
+<p><strong>数学公式</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>P(y=1|x) = 1 / (1 + e^(-z))
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>其中 z = w₀ + w₁x₁ + w₂x₂ + ... + wₙxₙ
+</span></code></pre></div></p>
+<p><strong>优点</strong>:
+- 模型简单，训练速度快
+- 输出概率值，便于解释
+- 对线性可分数据效果好
+- 不容易过拟合</p>
+<p><strong>缺点</strong>:
+- 假设线性关系，对非线性数据效果差
+- 对特征缩放敏感
+- 不能处理特征交互</p>
+<p><strong>适用场景</strong>:
+- 特征与目标呈线性关系
+- 需要快速训练和预测
+- 需要解释模型权重</p>
+<h3 id="2-decision-tree">2. 决策树 (Decision Tree)<a class="headerlink" href="#2-decision-tree" title="Permanent link">&para;</a></h3>
+<p><strong>原理</strong>: 递归划分特征空间，构建树形结构</p>
+<p><strong>划分标准</strong>:
+- <strong>基尼指数(Gini)</strong>: <code>Gini = 1 - Σ(pᵢ²)</code> (CART算法)
+- <strong>信息增益(Entropy)</strong>: <code>Entropy = -Σ(pᵢ·log₂pᵢ)</code> (ID3/C4.5算法)</p>
+<p><strong>优点</strong>:
+- 可以捕捉非线性关系
+- 自动进行特征选择
+- 不需要特征缩放
+- 输出可视化，易于理解
+- 可以处理类别特征</p>
+<p><strong>缺点</strong>:
+- 容易过拟合(需要剪枝)
+- 对噪声敏感
+- 不稳定(数据小变化可能导致树结构大变化)</p>
+<p><strong>适用场景</strong>:
+- 特征与目标呈非线性关系
+- 需要模型可解释性
+- 数据包含复杂交互关系</p>
+<hr />
+<h2 id="_7">特征工程<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="1_1">1. 数值特征处理<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<p><strong>标准化 (Standardization)</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_numeric</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 转换为: mean=0, std=1</span>
+</span></code></pre></div></p>
+<p><strong>为什么需要标准化?</strong>
+- 逻辑回归使用梯度下降优化，不同尺度的特征会导致收敛慢
+- 某些特征(如balance, duration)数值范围大，会主导模型
+- 标准化后所有特征在同一尺度，权重可比较</p>
+<h3 id="2_1">2. 类别特征处理<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<p><strong>独热编码 (One-Hot Encoding)</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># job: [admin, blue-collar, ...] -&gt; [1,0,0,...], [0,1,0,...], ...</span>
+</span></code></pre></div></p>
+<p><strong>标签编码 (Label Encoding)</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 二值类别: yes/no -&gt; 1/0</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># 有序类别: primary/secondary/tertiary -&gt; 1/2/3</span>
+</span></code></pre></div></p>
+<h3 id="3_1">3. 特征选择<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<p><strong>移除duration特征</strong>: 虽然duration是最强特征，但实际预测时不可用(通话后才知道时长)，移除以避免数据泄漏。</p>
+<p><strong>相关性分析</strong>: 计算特征与目标的相关系数，保留相关性高的特征。</p>
+<hr />
+<h2 id="_8">模型评估<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="1-confusion-matrix">1. 混淆矩阵 (Confusion Matrix)<a class="headerlink" href="#1-confusion-matrix" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>                预测 No    预测 Yes
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>实际 No (TN)      8,000      100
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>实际 Yes (FN)       300      600
+</span></code></pre></div>
+<ul>
+<li><strong>TN (True Negative)</strong>: 正确预测为负</li>
+<li><strong>FP (False Positive)</strong>: 错误预测为正 (Type I Error)</li>
+<li><strong>FN (False Negative)</strong>: 错误预测为负 (Type II Error)</li>
+<li><strong>TP (True Positive)</strong>: 正确预测为正</li>
+</ul>
+<h3 id="2_2">2. 评估指标<a class="headerlink" href="#2_2" title="Permanent link">&para;</a></h3>
+<p><strong>准确率 (Accuracy)</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Accuracy = (TP + TN) / (TP + TN + FP + FN)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>适用于类别平衡数据
+</span></code></pre></div></p>
+<p><strong>精确率 (Precision)</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Precision = TP / (TP + FP)
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>在所有预测为正的样本中，真正为正的比例
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>业务含义: 营销成功率
+</span></code></pre></div></p>
+<p><strong>召回率 (Recall/Sensitivity)</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Recall = TP / (TP + FN)
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>在所有真正为正的样本中，被正确预测的比例
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>业务含义: 潜在客户覆盖率
+</span></code></pre></div></p>
+<p><strong>F1分数 (F1-Score)</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>F1 = 2 × (Precision × Recall) / (Precision + Recall)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>精确率和召回率的调和平均数
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>适用于类别不平衡数据
+</span></code></pre></div></p>
+<p><strong>AUC-ROC</strong>:
+- ROC曲线: Recall(TPR) vs FPR曲线
+- AUC: ROC曲线下面积 (0.5-1.0, 越大越好)
+- 适用于类别不平衡数据，衡量模型排序能力</p>
+<h3 id="3_2">3. 类别不平衡处理<a class="headerlink" href="#3_2" title="Permanent link">&para;</a></h3>
+<p><strong>方法1: 调整类别权重</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># 自动计算权重: n_samples / (n_classes * np.bincount(y))</span>
+</span></code></pre></div></p>
+<p><strong>方法2: 重采样</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMOTE</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>方法3: 调整决策阈值</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 默认阈值0.5, 可调整为0.3提高召回率</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">y_pred</span> <span class="o">=</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">0.3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="_9">业务应用<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h3 id="1_2">1. 营销策略优化<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p><strong>场景</strong>: 银行有10,000个潜在客户，如何分配有限的营销资源?</p>
+<p><strong>解决方案</strong>:
+1. 使用模型预测每个客户的订购概率
+2. 按概率从高到低排序
+3. 只联系Top 20%高概率客户
+4. 预期转化率提升3-5倍</p>
+<h3 id="2_3">2. 客户细分<a class="headerlink" href="#2_3" title="Permanent link">&para;</a></h3>
+<p>基于预测概率将客户分为4组:
+- <strong>高潜力客户</strong> (p &gt; 0.7): 重点跟进，提供优惠
+- <strong>中等潜力</strong> (0.3 &lt; p &lt; 0.7): 标准营销话术
+- <strong>低潜力客户</strong> (0.1 &lt; p &lt; 0.3): 低频次接触
+- <strong>无潜力客户</strong> (p &lt; 0.1): 不联系，避免骚扰</p>
+<h3 id="3-ab">3. A/B测试<a class="headerlink" href="#3-ab" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>对照组</strong>: 随机选择客户进行营销</li>
+<li><strong>实验组</strong>: 基于模型预测选择客户</li>
+<li><strong>评估指标</strong>: 转化率、ROI、客户满意度</li>
+</ul>
+<hr />
+<h2 id="_10">扩展思考<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h3 id="1_3">1. 特征工程优化<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>创建交互特征: age×job, balance×housing</li>
+<li>时间特征: 季节性(month)、周期性</li>
+<li>聚合特征: 历史营销总次数、平均通话时长</li>
+</ul>
+<h3 id="2_4">2. 模型优化<a class="headerlink" href="#2_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>超参数调优: Grid Search, Random Search</li>
+<li>集成学习: Random Forest, XGBoost</li>
+<li>神经网络: 多层感知机(MLP)</li>
+</ul>
+<h3 id="3_3">3. 业务优化<a class="headerlink" href="#3_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>多目标优化: 平衡转化率与营销成本</li>
+<li>动态阈值: 根据营销预算动态调整决策阈值</li>
+<li>实时预测: 部署在线服务API</li>
+</ul>
+<h3 id="4">4. 进阶分析<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SHAP值解释: 理解每个特征对预测的贡献</li>
+<li>Uplift模型: 预测营销活动的增量效果</li>
+<li>因果推断: 评估营销活动的真实因果效应</li>
+</ul>
+<hr />
+<h2 id="_11">常见问题<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<h3 id="q1-duration">Q1: 为什么不能使用duration特征?<a class="headerlink" href="#q1-duration" title="Permanent link">&para;</a></h3>
+<p><strong>A</strong>: duration是最后通话时长，只有通话结束后才知道。在实际预测时(通话前)，这个特征不可用。使用它会导致**数据泄漏**(Data Leakage)，模型在训练集上表现很好，但实际应用时失效。</p>
+<h3 id="q2">Q2: 如何处理类别不平衡?<a class="headerlink" href="#q2" title="Permanent link">&para;</a></h3>
+<p><strong>A</strong>:
+1. 使用F1、AUC-ROC等适合不平衡数据的指标
+2. 调整模型的<code>class_weight='balanced'</code>
+3. 使用SMOTE等重采样技术
+4. 调整决策阈值(如从0.5降到0.3)</p>
+<h3 id="q3-vs">Q3: 逻辑回归 vs 决策树如何选择?<a class="headerlink" href="#q3-vs" title="Permanent link">&para;</a></h3>
+<p><strong>A</strong>:
+- 数据呈线性关系 -&gt; 逻辑回归
+- 数据呈非线性关系 -&gt; 决策树
+- 需要概率输出 -&gt; 逻辑回归
+- 需要可视化解释 -&gt; 决策树
+- 特征很多且有交互 -&gt; 决策树或集成方法</p>
+<h3 id="q4">Q4: 如何评估模型是否过拟合?<a class="headerlink" href="#q4" title="Permanent link">&para;</a></h3>
+<p><strong>A</strong>: 比较训练集和测试集的性能:
+- 训练集准确率95%, 测试集准确率70% -&gt; 过拟合
+- 解决方法: 正则化(L1/L2)、剪枝、减少特征、增加数据</p>
+<h3 id="q5">Q5: 模型部署后如何监控?<a class="headerlink" href="#q5" title="Permanent link">&para;</a></h3>
+<p><strong>A</strong>:
+- 监控预测分布: 检测数据漂移
+- 监控业务指标: 转化率、ROI
+- 定期重新训练: 每月或每季度
+- A/B测试: 对比新旧模型效果</p>
+<hr />
+<h2 id="_12">参考资料<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<h3 id="_13">数据集<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>UCI Repository: https://archive.ics.uci.edu/ml/datasets/Bank+Marketing</li>
+<li>论文: [Moro et al., 2014] A Data-Driven Approach to Predict the Success of Bank Telemarketing</li>
+</ul>
+<h3 id="_14">算法原理<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>《统计学习方法》李航 - 第6章 逻辑回归, 第5章 决策树</li>
+<li>Scikit-learn文档: https://scikit-learn.org/stable/supervised_learning.html</li>
+</ul>
+<h3 id="_15">类别不平衡<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>imbalanced-learn库: https://imbalanced-learn.org/</li>
+<li>论文: SMOTE - Synthetic Minority Over-sampling Technique</li>
+</ul>
+<h3 id="_16">模型评估<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>混淆矩阵可视化: https://scikit-learn.org/stable/modules/model_evaluation.html</li>
+<li>ROC-AUC解读: https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc</li>
+</ul>
+<hr />
+<h2 id="_17">更新日志<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>2025-11-13</strong>: 初始版本，包含逻辑回归和决策树分类模型</li>
+<li>数据集: 45,211条记录, 17个特征</li>
+<li>实现: 完整的数据预处理、特征工程、模型训练、评估、可视化流程</li>
+</ul>
 
 
 

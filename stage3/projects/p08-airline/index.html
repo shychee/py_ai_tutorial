@@ -12,31 +12,31 @@
         <meta name="author" content="shychee">
       
       
-        <link rel="canonical" href="https://shychee.github.io/py_ai_tutorial/stage3/03-ml-basics/">
+        <link rel="canonical" href="https://shychee.github.io/py_ai_tutorial/stage3/projects/p08-airline/">
       
       
-        <link rel="prev" href="../02-pandas-practice/">
+        <link rel="prev" href="../p07-ecommerce-annual/">
       
       
-        <link rel="next" href="../04-ml-advanced/">
+        <link rel="next" href="../p09-credit/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>模块3：AI数学基础 - Python AI 教程：从机器学习到大模型</title>
+        <title>P08：航空客户价值 - Python AI 教程：从机器学习到大模型</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ai-mathematical-foundations-for-ai" class="md-skip">
+        <a href="#p08" class="md-skip">
           跳转至
         </a>
       
@@ -100,7 +100,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Python AI 教程：从机器学习到大模型" class="md-header__button md-logo" aria-label="Python AI 教程：从机器学习到大模型" data-md-component="logo">
+    <a href="../../.." title="Python AI 教程：从机器学习到大模型" class="md-header__button md-logo" aria-label="Python AI 教程：从机器学习到大模型" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              模块3：AI数学基础
+              P08：航空客户价值
             
           </span>
         </div>
@@ -233,7 +233,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -254,7 +254,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../quickstart.md" class="md-tabs__link">
+        <a href="../../../quickstart.md" class="md-tabs__link">
           
   
   
@@ -274,7 +274,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cross-platform/setup-macos-intel/" class="md-tabs__link">
+        <a href="../../../cross-platform/setup-macos-intel/" class="md-tabs__link">
           
   
   
@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -316,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../stage4/" class="md-tabs__link">
+        <a href="../../../stage4/" class="md-tabs__link">
           
   
   
@@ -336,7 +336,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../stage5/" class="md-tabs__link">
+        <a href="../../../stage5/" class="md-tabs__link">
           
   
   
@@ -356,7 +356,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../glossary/" class="md-tabs__link">
+        <a href="../../../glossary/" class="md-tabs__link">
           
   
   
@@ -390,7 +390,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Python AI 教程：从机器学习到大模型" class="md-nav__button md-logo" aria-label="Python AI 教程：从机器学习到大模型" data-md-component="logo">
+    <a href="../../.." title="Python AI 教程：从机器学习到大模型" class="md-nav__button md-logo" aria-label="Python AI 教程：从机器学习到大模型" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -420,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -501,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quickstart.md" class="md-nav__link">
+      <a href="../../../quickstart.md" class="md-nav__link">
         
   
   
@@ -529,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../prerequisites/" class="md-nav__link">
+      <a href="../../../prerequisites/" class="md-nav__link">
         
   
   
@@ -557,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../learning-path/" class="md-nav__link">
+      <a href="../../../learning-path/" class="md-nav__link">
         
   
   
@@ -646,7 +646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/setup-macos-intel/" class="md-nav__link">
+      <a href="../../../cross-platform/setup-macos-intel/" class="md-nav__link">
         
   
   
@@ -674,7 +674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/setup-macos-arm64/" class="md-nav__link">
+      <a href="../../../cross-platform/setup-macos-arm64/" class="md-nav__link">
         
   
   
@@ -702,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/setup-linux/" class="md-nav__link">
+      <a href="../../../cross-platform/setup-linux/" class="md-nav__link">
         
   
   
@@ -730,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/setup-windows-native/" class="md-nav__link">
+      <a href="../../../cross-platform/setup-windows-native/" class="md-nav__link">
         
   
   
@@ -758,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/setup-windows-wsl2/" class="md-nav__link">
+      <a href="../../../cross-platform/setup-windows-wsl2/" class="md-nav__link">
         
   
   
@@ -786,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/setup-cloud-gpu/" class="md-nav__link">
+      <a href="../../../cross-platform/setup-cloud-gpu/" class="md-nav__link">
         
   
   
@@ -814,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cross-platform/troubleshooting/" class="md-nav__link">
+      <a href="../../../cross-platform/troubleshooting/" class="md-nav__link">
         
   
   
@@ -906,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -934,7 +934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-scientific-computing/" class="md-nav__link">
+      <a href="../../01-scientific-computing/" class="md-nav__link">
         
   
   
@@ -962,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-pandas-practice/" class="md-nav__link">
+      <a href="../../02-pandas-practice/" class="md-nav__link">
         
   
   
@@ -970,6 +970,315 @@
     
   
     模块2：Pandas实战
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-ml-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模块3：AI数学基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-ml-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模块4：机器学习进阶
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    项目作业
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    项目作业
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p01-healthcare/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P01：医疗数据分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p02-ecommerce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P02：服装零售分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p03-finance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P03：银行营销分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p04-telecom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P04：通讯客户响应
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p05-retail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P05：零售超市分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p06-internet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P06：滴滴运营分析
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p07-ecommerce-annual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    P07：淘宝用户行为
   
 
     
@@ -1006,7 +1315,7 @@
   <span class="md-ellipsis">
     
   
-    模块3：AI数学基础
+    P08：航空客户价值
   
 
     
@@ -1024,7 +1333,7 @@
   <span class="md-ellipsis">
     
   
-    模块3：AI数学基础
+    P08：航空客户价值
   
 
     
@@ -1053,41 +1362,19 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📖 模块简介
+        📋 项目概述
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎯 学习目标
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📚 知识点清单
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📚 知识点清单">
+    <nav class="md-nav" aria-label="📋 项目概述">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 统计学基础
+        项目目标
       
     </span>
   </a>
@@ -1095,21 +1382,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 线性代数
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 概率论
+        业务价值
       
     </span>
   </a>
@@ -1118,17 +1394,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📓 配套Notebook
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1136,38 +1401,10 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛠️ 实战练习
+        📊 数据集说明（规划）
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="🛠️ 实战练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-ab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习1: A/B测试
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-pca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习2: PCA降维与可视化
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1175,7 +1412,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎓 进阶拓展
+        🎯 学习要点
       
     </span>
   </a>
@@ -1186,79 +1423,18 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📖 推荐资源
+        💡 技术亮点
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📖 推荐资源">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        书籍
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        在线课程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        交互式学习
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ 自测清单
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🚀 下一步
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💬 讨论与反馈
+        📚 相关项目
       
     </span>
   </a>
@@ -1281,316 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-ml-advanced/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    模块4：机器学习进阶
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    项目作业
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    项目作业
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p01-healthcare/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P01：医疗数据分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p02-ecommerce/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P02：服装零售分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p03-finance/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P03：银行营销分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p04-telecom/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P04：通讯客户响应
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p05-retail/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P05：零售超市分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p06-internet/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P06：滴滴运营分析
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p07-ecommerce-annual/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P07：淘宝用户行为
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p08-airline/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    P08：航空客户价值
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../projects/p09-credit/" class="md-nav__link">
+      <a href="../p09-credit/" class="md-nav__link">
         
   
   
@@ -1687,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/" class="md-nav__link">
+      <a href="../../../stage4/" class="md-nav__link">
         
   
   
@@ -1715,7 +1582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/01-dl-basics/" class="md-nav__link">
+      <a href="../../../stage4/01-dl-basics/" class="md-nav__link">
         
   
   
@@ -1743,7 +1610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/02-cv-basics/README.md" class="md-nav__link">
+      <a href="../../../stage4/02-cv-basics/README.md" class="md-nav__link">
         
   
   
@@ -1771,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/03-nlp-basics/README.md" class="md-nav__link">
+      <a href="../../../stage4/03-nlp-basics/README.md" class="md-nav__link">
         
   
   
@@ -1853,7 +1720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p01-industrial-vision/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p01-industrial-vision/README.md" class="md-nav__link">
         
   
   
@@ -1881,7 +1748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p02-yolov11-realtime/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p02-yolov11-realtime/README.md" class="md-nav__link">
         
   
   
@@ -1909,7 +1776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p03-ocr/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p03-ocr/README.md" class="md-nav__link">
         
   
   
@@ -1937,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p04-image-segmentation/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p04-image-segmentation/README.md" class="md-nav__link">
         
   
   
@@ -1965,7 +1832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p05-medical-imaging/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p05-medical-imaging/README.md" class="md-nav__link">
         
   
   
@@ -1993,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p06-transformer-translation/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p06-transformer-translation/README.md" class="md-nav__link">
         
   
   
@@ -2021,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage4/projects/p07-pretrained-info-extraction/README.md" class="md-nav__link">
+      <a href="../../../stage4/projects/p07-pretrained-info-extraction/README.md" class="md-nav__link">
         
   
   
@@ -2118,7 +1985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage5/" class="md-nav__link">
+      <a href="../../../stage5/" class="md-nav__link">
         
   
   
@@ -2146,7 +2013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage5/01-aigc-llm-intro/README.md" class="md-nav__link">
+      <a href="../../../stage5/01-aigc-llm-intro/README.md" class="md-nav__link">
         
   
   
@@ -2174,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage5/02-llm-dev/README.md" class="md-nav__link">
+      <a href="../../../stage5/02-llm-dev/README.md" class="md-nav__link">
         
   
   
@@ -2256,7 +2123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stage5/projects/p01-dialogue-system/README.md" class="md-nav__link">
+      <a href="../../../stage5/projects/p01-dialogue-system/README.md" class="md-nav__link">
         
   
   
@@ -2353,7 +2220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
+      <a href="../../../glossary/" class="md-nav__link">
         
   
   
@@ -2381,7 +2248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../framework-comparison/" class="md-nav__link">
+      <a href="../../../framework-comparison/" class="md-nav__link">
         
   
   
@@ -2409,7 +2276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing.md" class="md-nav__link">
+      <a href="../../../contributing.md" class="md-nav__link">
         
   
   
@@ -2467,41 +2334,19 @@
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📖 模块简介
+        📋 项目概述
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🎯 学习目标
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📚 知识点清单
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📚 知识点清单">
+    <nav class="md-nav" aria-label="📋 项目概述">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 统计学基础
+        项目目标
       
     </span>
   </a>
@@ -2509,21 +2354,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. 线性代数
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. 概率论
+        业务价值
       
     </span>
   </a>
@@ -2532,17 +2366,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notebook" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📓 配套Notebook
-      
-    </span>
-  </a>
   
 </li>
       
@@ -2550,38 +2373,10 @@
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🛠️ 实战练习
+        📊 数据集说明（规划）
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="🛠️ 实战练习">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-ab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习1: A/B测试
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-pca" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        练习2: PCA降维与可视化
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2589,7 +2384,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎓 进阶拓展
+        🎯 学习要点
       
     </span>
   </a>
@@ -2600,79 +2395,18 @@
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📖 推荐资源
+        💡 技术亮点
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="📖 推荐资源">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        书籍
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        在线课程
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        交互式学习
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ 自测清单
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🚀 下一步
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💬 讨论与反馈
+        📚 相关项目
       
     </span>
   </a>
@@ -2699,309 +2433,52 @@
   
 
 
-<h1 id="ai-mathematical-foundations-for-ai">AI数学基础 (Mathematical Foundations for AI)<a class="headerlink" href="#ai-mathematical-foundations-for-ai" title="Permanent link">&para;</a></h1>
-<p><strong>模块ID</strong>: M03
-<strong>所属阶段</strong>: Stage 3 - 机器学习与数据挖掘
-<strong>预计学习时间</strong>: 1小时
-<strong>难度</strong>: ⭐⭐ 初级-中级</p>
-<hr />
-<h2 id="_1">📖 模块简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>本模块将带你快速掌握机器学习所需的核心数学知识：
-- <strong>统计学基础</strong>: 概率分布、假设检验、置信区间
-- <strong>线性代数</strong>: 矩阵运算、特征值分解、PCA降维
-- <strong>概率论速览</strong>: 条件概率、贝叶斯定理、期望与方差</p>
-<p><strong>注意</strong>: 本模块侧重**直觉理解**和**实际应用**，而非理论证明。目标是让你能看懂机器学习论文和代码，而不是成为数学家。</p>
-<hr />
-<h2 id="_2">🎯 学习目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>完成本模块后，你将能够：</p>
+<h1 id="p08">项目P08：航空公司客户价值分析<a class="headerlink" href="#p08" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>⚠️ <strong>项目状态</strong>: 规划中（未实现）</p>
+</blockquote>
+<h2 id="_1">📋 项目概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>本项目将分析航空公司的客户数据，使用 K-means 聚类算法对客户进行价值分层，帮助航空公司制定差异化的会员服务策略。</p>
+<h3 id="_2">项目目标<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
-<li>✅ 理解常见概率分布（正态分布、二项分布、泊松分布）</li>
-<li>✅ 进行假设检验和置信区间计算</li>
-<li>✅ 理解中心极限定理及其应用</li>
-<li>✅ 进行矩阵运算和特征值分解</li>
-<li>✅ 理解和应用PCA降维</li>
-<li>✅ 理解贝叶斯定理和条件概率</li>
-<li>✅ 计算期望、方差、协方差和相关系数</li>
-<li>✅ 理解梯度下降的数学原理</li>
+<li><strong>客户价值评估</strong>：基于飞行里程、消费金额、飞行频次等维度评估客户价值</li>
+<li><strong>客户聚类</strong>：使用 K-means 将客户划分为 4-6 个细分群体</li>
+<li><strong>群体画像</strong>：为每个客户群体生成特征画像</li>
+<li><strong>精准营销</strong>：为不同价值群体设计针对性的营销策略</li>
 </ol>
-<hr />
-<h2 id="_3">📚 知识点清单<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<h3 id="1">1. 统计学基础<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<details>
-<summary><strong>核心概念</strong></summary>
-
-**描述性统计** (已在M01学习):
-- 集中趋势: 均值、中位数、众数
-- 离散程度: 方差、标准差、四分位距
-- 分布形态: 偏度、峰度
-
-**概率分布**:
-
-1. **正态分布 (Normal Distribution)**
-   - 公式: $f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
-   - 参数: μ (均值), σ (标准差)
-   - 性质: 对称、钟形、68-95-99.7规则
-   - 应用: 身高、考试成绩、测量误差
-
-2. **二项分布 (Binomial Distribution)**
-   - 场景: n次独立试验，每次成功概率p
-   - 应用: 点击率、转化率、A/B测试
-
-3. **泊松分布 (Poisson Distribution)**
-   - 场景: 单位时间内事件发生次数
-   - 应用: 网站访问量、客服呼叫量
-
-**假设检验**:
-- **零假设 (H0)**: 没有效果/没有差异
-- **备择假设 (H1)**: 有效果/有差异
-- **p值**: 在零假设为真的情况下，观察到当前数据或更极端数据的概率
-- **显著性水平 α**: 通常取0.05（5%）
-- **判断**: p < α → 拒绝零假设 → 有统计显著性
-
-**中心极限定理 (Central Limit Theorem)**:
-- 大量独立同分布随机变量的均值近似服从正态分布
-- 应用: 样本均值估计总体均值、置信区间计算
-
-**为什么重要？**
-- 理解数据分布是特征工程的基础
-- 假设检验是A/B测试的理论基础
-- 中心极限定理是统计推断的基石
-
-</details>
-
-<hr />
-<h3 id="2">2. 线性代数<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
-<details>
-<summary><strong>核心概念</strong></summary>
-
-**向量与矩阵**:
-- 向量: 一维数组，表示方向和大小
-- 矩阵: 二维数组，表示线性变换
-- 张量: 多维数组（深度学习中的核心数据结构）
-
-**矩阵运算**:
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 加法/减法: 对应元素相加/减</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">,</span> <span class="n">A</span> <span class="o">-</span> <span class="n">B</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 数乘: 每个元素乘以标量</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">k</span> <span class="o">*</span> <span class="n">A</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 矩阵乘法: (m×n) × (n×p) = (m×p)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">A</span> <span class="o">@</span> <span class="n">B</span>  <span class="c1"># Python 3.5+</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>  <span class="c1"># NumPy</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># 转置: 行列互换</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">A</span><span class="o">.</span><span class="n">T</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># 逆矩阵: A × A^(-1) = I</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># 行列式: 衡量矩阵的&quot;体积&quot;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span></code></pre></div>
-
-**特征值与特征向量**:
-- 定义: $Av = \lambda v$（A是矩阵，v是特征向量，λ是特征值）
-- 几何意义: 特征向量是矩阵变换不改变方向的向量
-- 应用: PCA降维、Google PageRank、图像压缩
-
-**主成分分析 (PCA)**:
-- 目标: 找到数据方差最大的方向
-- 步骤:
-  1. 数据标准化
-  2. 计算协方差矩阵
-  3. 计算特征值和特征向量
-  4. 选择前k个最大特征值对应的特征向量
-  5. 投影到新空间
-- 应用: 降维、可视化、去噪
-
-**为什么重要？**
-- 机器学习的数据本质上是向量和矩阵
-- 深度学习就是一系列矩阵运算
-- PCA是最常用的降维方法
-
-</details>
-
-<hr />
-<h3 id="3">3. 概率论<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<details>
-<summary><strong>核心概念</strong></summary>
-
-**条件概率**:
-- 定义: $P(A|B) = \frac{P(A \cap B)}{P(B)}$
-- 意义: 在B发生的条件下，A发生的概率
-- 应用: 推荐系统、疾病诊断
-
-**贝叶斯定理**:
-$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
-
-- **先验概率 P(A)**: 观察数据前的信念
-- **似然 P(B|A)**: 模型对数据的拟合程度
-- **后验概率 P(A|B)**: 观察数据后更新的信念
-- **证据 P(B)**: 归一化常数
-
-**贝叶斯思维的威力**:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>经典例子：垃圾邮件分类
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- 先验: P(垃圾邮件) = 0.3 (30%的邮件是垃圾)
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- 似然: P(包含&quot;中奖&quot;|垃圾邮件) = 0.8
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- 证据: P(包含&quot;中奖&quot;) = 0.25
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>- 后验: P(垃圾邮件|包含&quot;中奖&quot;) = 0.8 × 0.3 / 0.25 = 0.96
-</span></code></pre></div>
-
-**期望与方差**:
-- **期望 E[X]**: 随机变量的平均值
-  - 离散: $E[X] = \sum x_i \cdot P(x_i)$
-  - 连续: $E[X] = \int x \cdot f(x) dx$
-- **方差 Var[X]**: 随机变量的离散程度
-  - $Var[X] = E[(X - E[X])^2] = E[X^2] - (E[X])^2$
-- **标准差**: $\sigma = \sqrt{Var[X]}$
-
-**协方差与相关系数**:
-- **协方差**: $Cov(X, Y) = E[(X-E[X])(Y-E[Y])]$
-  - > 0: 正相关
-  - = 0: 不相关
-  - < 0: 负相关
-- **相关系数**: $\rho = \frac{Cov(X,Y)}{\sigma_X \sigma_Y}$ ∈ [-1, 1]
-  - 归一化的协方差，消除量纲影响
-
-**为什么重要？**
-- 朴素贝叶斯分类器基于贝叶斯定理
-- 强化学习需要计算期望回报
-- 协方差矩阵是PCA的核心
-
-</details>
-
-<hr />
-<h2 id="notebook">📓 配套Notebook<a class="headerlink" href="#notebook" title="Permanent link">&para;</a></h2>
-<p>按顺序学习以下Notebook：</p>
-<table>
-<thead>
-<tr>
-<th>Notebook</th>
-<th>主题</th>
-<th>时长</th>
-<th>难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../../../notebooks/stage3/06-statistics-basics.ipynb">06-statistics-basics.ipynb</a></td>
-<td>概率分布、假设检验、中心极限定理</td>
-<td>20分钟</td>
-<td>⭐⭐</td>
-</tr>
-<tr>
-<td><a href="../../../notebooks/stage3/07-linear-algebra.ipynb">07-linear-algebra.ipynb</a></td>
-<td>矩阵运算、特征值分解、PCA降维</td>
-<td>25分钟</td>
-<td>⭐⭐</td>
-</tr>
-</tbody>
-</table>
-<p><strong>学习建议</strong>:
-1. 不要纠结数学证明，重点理解直觉和应用
-2. 运行代码，观察可视化结果
-3. 完成练习题，加深理解
-4. 如果某个概念不理解，先跳过，在后续项目中自然会理解</p>
-<hr />
-<h2 id="_4">🛠️ 实战练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="1-ab">练习1: A/B测试<a class="headerlink" href="#1-ab" title="Permanent link">&para;</a></h3>
-<p><strong>场景</strong>: 电商网站测试两个版本的购买按钮（A版和B版），判断哪个转化率更高。</p>
-<p><strong>数据</strong>:
-- A版: 1000次展示，50次点击（转化率5%）
-- B版: 1000次展示，60次点击（转化率6%）</p>
-<p><strong>任务</strong>:
-1. 计算两个版本转化率的差异
-2. 进行t检验，判断差异是否显著
-3. 计算置信区间
-4. 给出业务建议</p>
-<hr />
-<h3 id="2-pca">练习2: PCA降维与可视化<a class="headerlink" href="#2-pca" title="Permanent link">&para;</a></h3>
-<p><strong>场景</strong>: 对鸢尾花数据集（4个特征）进行PCA降维，投影到2维空间可视化。</p>
-<p><strong>任务</strong>:
-1. 加载鸢尾花数据集
-2. 标准化数据
-3. 应用PCA降到2维
-4. 可视化降维后的数据（不同类别用不同颜色）
-5. 解释主成分的含义</p>
-<hr />
-<h2 id="_5">🎓 进阶拓展<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>完成基础学习后，可选择深入以下主题：</p>
-<ol>
-<li><strong>数学优化</strong></li>
-<li>梯度下降及其变体（SGD, Adam, RMSprop）</li>
-<li>凸优化基础</li>
-<li>
-<p>拉格朗日乘数法（SVM原理）</p>
-</li>
-<li>
-<p><strong>信息论</strong></p>
-</li>
-<li>熵、交叉熵、KL散度</li>
-<li>信息增益（决策树）</li>
-<li>
-<p>互信息（特征选择）</p>
-</li>
-<li>
-<p><strong>高级线性代数</strong></p>
-</li>
-<li>SVD奇异值分解（推荐系统）</li>
-<li>矩阵分解（NMF）</li>
-<li>张量分解</li>
-</ol>
-<hr />
-<h2 id="_6">📖 推荐资源<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<h3 id="_7">书籍<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_3">业务价值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li>《统计学习方法》- 李航（偏理论）</li>
-<li>《机器学习》- 周志华（西瓜书）</li>
-<li>《深度学习》- Ian Goodfellow（花书）第2-4章</li>
+<li>识别高价值客户，提供定制化服务</li>
+<li>发现潜力客户，实施会员升级计划</li>
+<li>优化资源分配，提高营销 ROI</li>
 </ul>
-<h3 id="_8">在线课程<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h2 id="_4">📊 数据集说明（规划）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>3Blue1Brown: <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">线性代数的本质</a>（强烈推荐！）</li>
-<li>3Blue1Brown: <a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">微积分的本质</a></li>
-<li>Khan Academy: 统计学与概率论</li>
+<li><strong>客户数量</strong>：约 50,000 名会员</li>
+<li><strong>核心特征</strong>：会员等级、飞行次数、累计里程、平均票价、最近飞行时间、舱位偏好</li>
+<li><strong>时间范围</strong>：最近 24 个月</li>
 </ul>
-<h3 id="_9">交互式学习<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h2 id="_5">🎯 学习要点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://seeing-theory.brown.edu/">Seeing Theory</a>: 概率论可视化</li>
-<li><a href="http://immersivemath.com/ila/index.html">Immersive Math</a>: 交互式线性代数</li>
+<li><strong>聚类算法</strong>：K-means 原理与实践</li>
+<li><strong>肘部法则</strong>：确定最优聚类数</li>
+<li><strong>特征工程</strong>：特征标准化、PCA 降维</li>
+<li><strong>可视化</strong>：2D/3D 聚类结果可视化</li>
+</ul>
+<h2 id="_6">💡 技术亮点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>多维特征标准化</li>
+<li>聚类效果评估（轮廓系数、Davies-Bouldin 指数）</li>
+<li>客户群体命名策略</li>
+</ul>
+<h2 id="_7">📚 相关项目<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../p04-telecom/">P04：通讯客户响应</a> - RFM 客户分层</li>
+<li><a href="../../04-ml-advanced/">M04：机器学习进阶</a> - 聚类算法详解</li>
+<li><a href="../../">阶段3概述</a></li>
 </ul>
 <hr />
-<h2 id="_10">✅ 自测清单<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>完成本模块后，你应该能够：</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 识别正态分布、二项分布、泊松分布及其应用场景</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 进行假设检验（t检验、卡方检验）</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 计算置信区间并解释其含义</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 理解中心极限定理及其在抽样中的应用</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 进行矩阵加法、乘法、转置、求逆运算</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 计算矩阵的特征值和特征向量</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 应用PCA进行降维和可视化</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 应用贝叶斯定理进行概率推断</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 计算协方差和相关系数</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 理解梯度下降的数学原理</li>
-</ul>
-<p><strong>通过标准</strong>: 完成2个实战练习，理解数学直觉</p>
-<hr />
-<h2 id="_11">🚀 下一步<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>完成本模块后，你可以：</p>
-<ol>
-<li><strong>继续学习模块M04</strong>: <a href="../04-ml-advanced/">机器学习进阶</a> - 回归、分类、聚类算法</li>
-<li><strong>开始项目实战</strong>: <a href="../projects/p01-healthcare/">项目P01 - 朝阳医院数据分析</a></li>
-<li><strong>深入数学理论</strong>: 学习《统计学习方法》或《机器学习》</li>
-</ol>
-<p><strong>重要</strong>: 数学是工具，不是目的。在做项目中遇到不懂的概念时再回头查阅，是更高效的学习方式！</p>
-<hr />
-<h2 id="_12">💬 讨论与反馈<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
-<p>遇到问题？有改进建议？</p>
-<ul>
-<li>💬 加入学习社群讨论</li>
-<li>🐛 提交<a href="https://github.com/shychee/py_ai_tutorial/issues">GitHub Issue</a></li>
-<li>📧 发送邮件至 shychee96@gmail.com</li>
-</ul>
-<p><strong>数学是理解机器学习的钥匙，但不要被数学吓倒！</strong> 💪</p>
+<p><strong>项目状态</strong>: 预计在 v1.0.0 版本实现 | <a href="https://github.com/shychee/py_ai_tutorial/issues">查看开发计划</a></p>
 
 
 
@@ -3024,7 +2501,7 @@ $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年11月17日 15:32:15 CST">2025年11月17日 15:32:15</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年11月17日 16:41:21 CST">2025年11月17日 16:41:21</span>
   </span>
 
     
@@ -3034,7 +2511,7 @@ $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
     <span class="md-icon" title="创建日期">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年11月17日 15:27:58 CST">2025年11月17日 15:27:58</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2025年11月17日 16:41:21 CST">2025年11月17日 16:41:21</span>
   </span>
 
     
@@ -3113,12 +2590,12 @@ $$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

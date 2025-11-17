@@ -69,43 +69,39 @@
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p01-healthcare/</loc>
+         <lastmod>2025-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p02-ecommerce/</loc>
+         <lastmod>2025-11-17</lastmod>
+    </url>
+    <url>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p03-finance/</loc>
+         <lastmod>2025-11-17</lastmod>
+    </url>
+    <url>
          <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/</loc>
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/notebooks/analysis/</loc>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p05-retail/</loc>
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/__init__/</loc>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p06-internet/</loc>
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/analyze/</loc>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p07-ecommerce-annual/</loc>
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/data/__init__/</loc>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p08-airline/</loc>
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/data/loader/</loc>
-         <lastmod>2025-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/utils/__init__/</loc>
-         <lastmod>2025-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/utils/logger/</loc>
-         <lastmod>2025-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/utils/metrics/</loc>
-         <lastmod>2025-11-17</lastmod>
-    </url>
-    <url>
-         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p04-telecom/src/utils/visualization/</loc>
+         <loc>https://shychee.github.io/py_ai_tutorial/stage3/projects/p09-credit/</loc>
          <lastmod>2025-11-17</lastmod>
     </url>
     <url>
