@@ -301,9 +301,9 @@ Phase 2 (Foundation) ← 阻塞所有User Stories
 
 ### 阶段4数据准备（串行，T093-T095）
 
-- [ ] T093 [US2] 实现scripts/data/download-stage4.py（下载ImageNet子集、COCO、MNIST/CIFAR、预训练权重）
-- [ ] T094 [US2] 创建data/stage4/README.md（数据集列表、模型权重缓存说明）
-- [ ] T095 [US2] 打包离线数据offline/stage4-data.tar.gz（~6GB）+ offline/stage4-models.tar.gz（~3GB）
+- [X] T093 [US2] 实现scripts/data/download-stage4.py（下载ImageNet子集、COCO、MNIST/CIFAR、预训练权重）
+- [X] T094 [US2] 创建data/stage4/README.md（数据集列表、模型权重缓存说明）
+- [X] T095 [US2] 打包离线数据offline/stage4-data.tar.gz（~6GB）+ offline/stage4-models.tar.gz（~3GB）
 
 ### 阶段4项目实现（混合并行，T096-T125）
 
