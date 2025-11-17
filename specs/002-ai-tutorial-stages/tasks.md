@@ -316,11 +316,11 @@ Phase 2 (Foundation) ← 阻塞所有User Stories
 
 #### 项目P02：基于YOLOv11的视频实时检测系统（双框架）
 
-- [ ] T100 [P] [US2] 创建docs/stage4/projects/p02-yolov11-realtime/目录结构
-- [ ] T101 [P] [US2] 编写docs/stage4/projects/p02-yolov11-realtime/README.md（框架对比说明）
-- [ ] T102 [P] [US2] 实现docs/stage4/projects/p02-yolov11-realtime/pytorch/train.py（YOLOv11 PyTorch版）
-- [ ] T103 [P] [US2] 实现docs/stage4/projects/p02-yolov11-realtime/tensorflow/train.py（YOLOv11 TensorFlow版）
-- [ ] T104 [P] [US2] 创建CPU与GPU两套配置（configs/cpu.yaml, configs/gpu.yaml）
+- [X] T100 [P] [US2] 创建docs/stage4/projects/p02-yolov11-realtime/目录结构
+- [X] T101 [P] [US2] 编写docs/stage4/projects/p02-yolov11-realtime/README.md（框架对比说明）
+- [X] T102 [P] [US2] 实现docs/stage4/projects/p02-yolov11-realtime/pytorch/train.py（YOLOv11 PyTorch版）
+- [X] T103 [P] [US2] 实现docs/stage4/projects/p02-yolov11-realtime/tensorflow/train.py（YOLOv11 TensorFlow版）
+- [X] T104 [P] [US2] 创建CPU与GPU两套配置（configs/cpu.yaml, configs/gpu.yaml）
 
 #### 项目P03：OCR票据识别（单框架PaddlePaddle）
 

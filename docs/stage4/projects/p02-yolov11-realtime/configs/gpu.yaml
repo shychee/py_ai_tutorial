@@ -1,0 +1,66 @@
+# YOLOv11 GPU Training Configuration
+# 适用于GPU环境的高性能训练配置
+
+# Device
+device: 0            # GPU ID (0, 1, 2, ... or 'cpu')
+
+# Training
+epochs: 50           # GPU训练轮数可以适当减少（效果更好）
+batch_size: 32       # GPU可使用更大的batch size
+imgsz: 640           # 标准输入尺寸
+workers: 8           # 数据加载线程数（建议CPU核心数）
+
+# Optimizer
+optimizer: Adam      # Adam | SGD | AdamW
+lr0: 0.01            # 初始学习率
+lrf: 0.01            # 最终学习率比例
+momentum: 0.937      # SGD momentum / Adam beta1
+weight_decay: 0.0005 # 权重衰减
+
+# Scheduler
+warmup_epochs: 3     # 预热轮数
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Loss weights
+box: 7.5             # 边界框损失权重
+cls: 0.5             # 分类损失权重
+dfl: 1.5             # Distribution Focal Loss权重
+
+# Augmentation (GPU可以使用更强的增强)
+hsv_h: 0.015         # 色调抖动
+hsv_s: 0.7           # 饱和度抖动
+hsv_v: 0.4           # 明度抖动
+degrees: 0.0         # 旋转角度
+translate: 0.1       # 平移比例
+scale: 0.9           # 缩放比例 (0.1 = 10%)
+shear: 0.0           # 剪切角度
+perspective: 0.0     # 透视变换
+flipud: 0.0          # 上下翻转概率
+fliplr: 0.5          # 左右翻转概率
+mosaic: 1.0          # Mosaic增强（强烈推荐）
+mixup: 0.15          # MixUp增强
+copy_paste: 0.3      # Copy-Paste增强
+
+# Validation
+val: true            # 每个epoch后验证
+save_period: 5       # 每5个epoch保存一次
+patience: 30         # 早停耐心值
+
+# Performance
+amp: true            # 自动混合精度训练（FP16，显著加速）
+deterministic: false # 非确定性（更快，但不可完全复现）
+single_cls: false    # 多类别检测
+rect: true           # 矩形训练（节省内存）
+cos_lr: true         # 余弦学习率衰减
+close_mosaic: 10     # 在最后10个epoch关闭mosaic
+
+# Logging
+verbose: true
+plots: true
+
+# Advanced
+nbs: 64              # Nominal batch size
+overlap_mask: true   # 训练时允许masks重叠
+mask_ratio: 4        # Mask下采样比例
+dropout: 0.0         # Dropout比例（分类头）
