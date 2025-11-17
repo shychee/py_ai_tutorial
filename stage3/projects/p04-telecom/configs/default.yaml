@@ -1,0 +1,164 @@
+# P04-Telecom项目默认配置
+# RFM分析与客户流失预测
+
+# 数据配置
+data:
+  # 数据文件路径(相对于项目根目录)
+  input_file: "../../../../data/stage3/telecom_customer_data.csv"
+
+  # 数据分割比例
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+  # 随机种子(确保可复现)
+  random_seed: 42
+
+  # 当前分析日期(用于计算Recency)
+  analysis_date: "2024-12-31"
+
+# RFM分析配置
+rfm:
+  # RFM评分方式
+  scoring_method: "quantile"  # quantile(五分位数) 或 fixed(固定阈值)
+
+  # 每个维度分为5个等级(1-5分,5分最高)
+  n_bins: 5
+
+  # 客户细分规则(基于RFM总分)
+  segments:
+    champion: [13, 15]        # 总分13-15分: 冠军客户(RFM都很高)
+    loyal: [10, 12]           # 总分10-12分: 忠诚客户
+    potential_loyalist: [8, 9] # 总分8-9分: 潜在忠诚客户
+    recent_customers: [7, 7]   # 总分7分: 新客户(R高但F、M低)
+    at_risk: [5, 6]           # 总分5-6分: 流失风险客户
+    cant_lose: [4, 4]         # 总分4分: 不能失去的客户(M高但R低)
+    hibernating: [2, 3]       # 总分2-3分: 休眠客户
+    lost: [0, 1]              # 总分0-1分: 已流失客户
+
+# 数据预处理配置
+preprocessing:
+  # 缺失值处理策略
+  missing_value_strategy:
+    numeric: "median"         # 数值型: median(中位数) 或 mean(均值)
+    categorical: "mode"       # 类别型: mode(众数)
+
+  # 异常值处理(使用IQR方法)
+  outlier_handling:
+    enabled: true
+    method: "clip"            # clip(截断) 或 remove(删除)
+    iqr_multiplier: 1.5       # IQR倍数(标准为1.5)
+
+  # 特征编码
+  encoding:
+    service_type: "onehot"    # onehot编码
+    contract_type: "onehot"
+    age_group: "ordinal"      # 序数编码(18-25=0, 26-35=1, ...)
+    region: "onehot"
+
+  # 特征缩放(用于模型训练)
+  scaling:
+    enabled: true
+    method: "standard"        # standard(标准化) 或 minmax(归一化)
+
+# 流失预测模型配置
+model:
+  # 模型类型
+  type: "random_forest"       # random_forest, logistic_regression, xgboost
+
+  # 随机森林参数
+  random_forest:
+    n_estimators: 100         # 树的数量
+    max_depth: 10             # 最大深度(None表示不限制)
+    min_samples_split: 10     # 分裂所需最小样本数
+    min_samples_leaf: 5       # 叶节点最小样本数
+    max_features: "sqrt"      # 最大特征数: sqrt, log2, None
+    class_weight: "balanced"  # 处理类别不平衡
+    random_state: 42
+    n_jobs: -1                # 使用所有CPU核心
+
+  # 逻辑回归参数(备用)
+  logistic_regression:
+    C: 1.0                    # 正则化强度倒数
+    penalty: "l2"             # l1 或 l2正则化
+    max_iter: 1000
+    class_weight: "balanced"
+    random_state: 42
+
+  # 是否进行超参数搜索
+  hyperparameter_tuning:
+    enabled: false            # true时进行GridSearch(耗时较长)
+    cv_folds: 5               # 交叉验证折数
+    param_grid:
+      n_estimators: [50, 100, 200]
+      max_depth: [5, 10, 15]
+      min_samples_split: [5, 10, 20]
+
+# 模型评估配置
+evaluation:
+  # 评估指标
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1_score"
+    - "roc_auc"
+
+  # 交叉验证
+  cross_validation:
+    enabled: true
+    n_folds: 5
+
+  # 阈值调整(用于precision-recall权衡)
+  threshold_tuning:
+    enabled: false
+    target_metric: "f1_score"  # 优化目标: f1_score, precision, recall
+
+# 可视化配置
+visualization:
+  # 图表样式
+  style: "seaborn"            # seaborn, ggplot, default
+  palette: "Set2"             # 调色板
+
+  # 图表大小(英寸)
+  figsize:
+    default: [10, 6]
+    large: [12, 8]
+    small: [8, 5]
+
+  # 字体大小
+  fontsize:
+    title: 14
+    label: 12
+    tick: 10
+
+  # 图表DPI(分辨率)
+  dpi: 100
+
+  # 保存格式
+  save_format: "png"          # png, svg, pdf
+
+# 输出路径配置
+paths:
+  # 输出根目录
+  output_dir: "outputs/"
+
+  # 子目录
+  models_dir: "outputs/models/"
+  figures_dir: "outputs/figures/"
+  reports_dir: "outputs/reports/"
+  logs_dir: "outputs/logs/"
+
+  # 输出文件名
+  model_file: "churn_model.pkl"
+  scaler_file: "scaler.pkl"
+  report_file: "report.md"
+  experiment_info_file: "experiment_info.json"
+  predictions_file: "predictions.csv"
+
+# 日志配置
+logging:
+  level: "INFO"               # DEBUG, INFO, WARNING, ERROR
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "outputs/logs/analysis.log"
+  console: true               # 是否同时输出到控制台
