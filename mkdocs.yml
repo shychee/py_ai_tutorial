@@ -1,10 +1,10 @@
 site_name: Python AI 教程：从机器学习到大模型
 site_description: 为3-5年Python后端工程师打造的AI学习路径，从传统机器学习到生成式AI
-site_author: 教程团队
-site_url: https://yourusername.github.io/py_ai_tutorial/
+site_author: shychee
+site_url: https://shychee.github.io/py_ai_tutorial/
 
-repo_name: yourusername/py_ai_tutorial
-repo_url: https://github.com/yourusername/py_ai_tutorial
+repo_name: shychee/py_ai_tutorial
+repo_url: https://github.com/shychee/py_ai_tutorial
 edit_uri: edit/main/docs/
 
 theme:
@@ -107,12 +107,9 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername/py_ai_tutorial
+      link: https://github.com/shychee/py_ai_tutorial
     - icon: fontawesome/solid/envelope
-      link: mailto:tutorial@example.com
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
+      link: mailto:shychee96@gmail.com
   version:
     provider: mike
 
