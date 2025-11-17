@@ -285,19 +285,19 @@ Phase 2 (Foundation) ← 阻塞所有User Stories
 
 #### 模块M01：深度学习基础理论
 
-- [ ] T086 [P] [US2] 编写docs/stage4/01-dl-basics/README.md（神经网络、反向传播、优化器、损失函数）
-- [ ] T087 [P] [US2] 创建notebooks/stage4/01-neural-network.ipynb（手写神经网络、梯度下降可视化）
-- [ ] T088 [P] [US2] 创建notebooks/stage4/02-pytorch-basics.ipynb（张量操作、自动微分、模型定义）
+- [X] T086 [P] [US2] 编写docs/stage4/01-dl-basics/README.md（神经网络、反向传播、优化器、损失函数）
+- [X] T087 [P] [US2] 创建notebooks/stage4/01-neural-network.ipynb（手写神经网络、梯度下降可视化）
+- [X] T088 [P] [US2] 创建notebooks/stage4/02-pytorch-basics.ipynb（张量操作、自动微分、模型定义）
 
 #### 模块M02：计算机视觉基础
 
-- [ ] T089 [P] [US2] 编写docs/stage4/02-cv-basics/README.md（CNN、目标检测、图像分割原理）
-- [ ] T090 [P] [US2] 创建notebooks/stage4/03-cnn-image-classification.ipynb（LeNet/AlexNet/VGG/ResNet）
+- [X] T089 [P] [US2] 编写docs/stage4/02-cv-basics/README.md（CNN、目标检测、图像分割原理）
+- [X] T090 [P] [US2] 创建notebooks/stage4/03-cnn-image-classification.ipynb（LeNet/AlexNet/VGG/ResNet）
 
 #### 模块M03：自然语言处理基础
 
-- [ ] T091 [P] [US2] 编写docs/stage4/03-nlp-basics/README.md（RNN/LSTM、Transformer、预训练模型）
-- [ ] T092 [P] [US2] 创建notebooks/stage4/04-rnn-text-classification.ipynb（情感分类、序列标注）
+- [X] T091 [P] [US2] 编写docs/stage4/03-nlp-basics/README.md（RNN/LSTM、Transformer、预训练模型）
+- [X] T092 [P] [US2] 创建notebooks/stage4/04-rnn-text-classification.ipynb（情感分类、序列标注）
 
 ### 阶段4数据准备（串行，T093-T095）
 
