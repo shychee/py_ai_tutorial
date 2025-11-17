@@ -35,7 +35,17 @@
       "Bash(git remote:*)",
       "Bash(git log:*)",
       "Bash(git push:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git tag -a v0.1.0-alpha -m \"$(cat <<''EOF''\nv0.1.0-alpha - Stage 3 基础框架与核心内容\n\n## 已完成功能 (67/166 tasks, 40.4%)\n\n### Phase 1-2: 项目基础 ✅\n- 完整的项目结构与配置\n- 跨平台环境配置指南 (6个操作系统)\n- 数据模型与验证系统\n- 自动化工具脚本\n\n### Phase 3: Stage 3 机器学习教程 (部分完成)\n- ✅ 4个教学模块完整文档\n- ✅ 8个 Jupyter Notebook 教学演示\n- ✅ 4个项目 (P01医疗, P02电商, P03银行, P04通信)\n- ❌ 5个项目待实现 (P05-P09)\n- ❌ 评估系统未实现\n\n### 数据集\n- 4个真实场景数据集生成完成\n- 数据下载与校验脚本完成\n\n## 未完成内容\n- Stage 3 剩余5个项目\n- Stage 4 深度学习全部内容\n- Stage 5 大模型全部内容\n- 评估与测试系统\n\n## 下一步计划\n完成 Stage 3 全部9个项目，发布 v1.0.0 MVP版本\nEOF\n)\")",
+      "Bash(git checkout:*)",
+      "Bash(pip3 install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-jupyter jieba)",
+      "Bash(mkdocs build:*)",
+      "Bash(pip install:*)",
+      "Bash(cat:*)",
+      "Bash(git rm:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(git mv:*)",
+      "Bash(git ls-tree:*)"
     ],
     "deny": [],
     "ask": []
