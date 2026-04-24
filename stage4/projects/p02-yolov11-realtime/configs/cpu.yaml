@@ -1,0 +1,60 @@
+# YOLOv11 CPU Training Configuration
+# 适用于CPU环境的训练配置
+
+# Device
+device: cpu
+
+# Training
+epochs: 100
+batch_size: 8        # CPU建议使用较小的batch size
+imgsz: 416           # CPU建议使用较小的输入尺寸
+workers: 4           # 数据加载线程数
+
+# Optimizer
+optimizer: Adam
+lr0: 0.001           # 初始学习率
+lrf: 0.01            # 最终学习率比例 (final_lr = lr0 * lrf)
+momentum: 0.937      # SGD momentum / Adam beta1
+weight_decay: 0.0005 # L2 regularization
+
+# Scheduler
+warmup_epochs: 3     # 预热轮数
+warmup_momentum: 0.8
+warmup_bias_lr: 0.1
+
+# Loss weights
+box: 7.5             # 边界框损失权重
+cls: 0.5             # 分类损失权重
+dfl: 1.5             # Distribution Focal Loss权重
+
+# Augmentation
+hsv_h: 0.015         # 色调抖动
+hsv_s: 0.7           # 饱和度抖动
+hsv_v: 0.4           # 明度抖动
+degrees: 0.0         # 旋转角度
+translate: 0.1       # 平移比例
+scale: 0.5           # 缩放比例
+shear: 0.0           # 剪切角度
+perspective: 0.0     # 透视变换
+flipud: 0.0          # 上下翻转概率
+fliplr: 0.5          # 左右翻转概率
+mosaic: 1.0          # Mosaic增强概率
+mixup: 0.0           # MixUp增强概率
+copy_paste: 0.0      # Copy-Paste增强概率
+
+# Validation
+val: true            # 是否在训练期间验证
+save_period: 10      # 保存检查点的间隔(epoch)
+patience: 50         # 早停耐心值
+
+# Performance
+amp: false           # 自动混合精度训练 (CPU不支持)
+deterministic: true  # 确定性训练（可复现）
+single_cls: false    # 单类别训练
+rect: false          # 矩形训练
+cos_lr: false        # 余弦学习率衰减
+close_mosaic: 10     # 在最后N个epoch关闭mosaic
+
+# Logging
+verbose: true
+plots: true
