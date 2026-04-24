@@ -196,38 +196,105 @@ datasets:
   - id: "DS-S3-P04-TELECOM"
     project_id: "P04"
     stage_id: "stage3"
-    name: "通讯公司客户数据"
-    name_en: "Telecom Customer Data"
+    name: "电信客户流失数据"
+    name_en: "Telco Customer Churn Data"
 
     description: |
-      通讯行业客户行为数据，包含通话记录、套餐信息、流失标签，
-      用于练习RFM模型、流失预测、客户细分。
+      IBM Telco Customer Churn 数据集，包含客户人口统计、服务订阅、
+      账单信息和流失标签，用于练习特征工程、流失预测建模、模型解释。
 
     source:
-      type: "synthetic"
-      url: "https://github.com/yourusername/py_ai_tutorial/releases/download/v1.0.0/telecom_customer.csv"
-      mirror_url: "https://mirror.example.com/datasets/stage3/telecom_customer.csv"
-      license: "MIT"
+      type: "public"
+      url: "https://www.kaggle.com/datasets/blastchar/telco-customer-churn"
+      mirror_url: null
+      license: "Public Dataset"
+      citation: "IBM Sample Data Sets - Telco Customer Churn"
 
     files:
-      - filename: "telecom_customer.csv"
-        size_mb: 155
-        rows: 750000
-        checksum_sha256: "PLACEHOLDER_CHECKSUM_TO_BE_GENERATED"
-        columns: 20
+      - filename: "WA_Fn-UseC_-Telco-Customer-Churn.csv"
+        size_mb: 1.0
+        rows: 7043
+        checksum_sha256: null
+        columns: 21
         format: "CSV"
 
+    schema:
+      - name: "customerID"
+        type: "string"
+        description: "客户唯一标识"
+      - name: "gender"
+        type: "string"
+        description: "性别 (Male/Female)"
+      - name: "SeniorCitizen"
+        type: "integer"
+        description: "是否老年人 (0/1)"
+      - name: "Partner"
+        type: "string"
+        description: "是否有伴侣 (Yes/No)"
+      - name: "Dependents"
+        type: "string"
+        description: "是否有家属 (Yes/No)"
+      - name: "tenure"
+        type: "integer"
+        description: "在网时长（月）"
+      - name: "PhoneService"
+        type: "string"
+        description: "是否有电话服务"
+      - name: "MultipleLines"
+        type: "string"
+        description: "是否有多线路"
+      - name: "InternetService"
+        type: "string"
+        description: "互联网服务类型 (DSL/Fiber optic/No)"
+      - name: "OnlineSecurity"
+        type: "string"
+        description: "是否有在线安全服务"
+      - name: "OnlineBackup"
+        type: "string"
+        description: "是否有在线备份"
+      - name: "DeviceProtection"
+        type: "string"
+        description: "是否有设备保护"
+      - name: "TechSupport"
+        type: "string"
+        description: "是否有技术支持"
+      - name: "StreamingTV"
+        type: "string"
+        description: "是否有流媒体TV"
+      - name: "StreamingMovies"
+        type: "string"
+        description: "是否有流媒体电影"
+      - name: "Contract"
+        type: "string"
+        description: "合约类型 (Month-to-month/One year/Two year)"
+      - name: "PaperlessBilling"
+        type: "string"
+        description: "是否无纸化账单"
+      - name: "PaymentMethod"
+        type: "string"
+        description: "支付方式"
+      - name: "MonthlyCharges"
+        type: "float"
+        description: "月费用"
+      - name: "TotalCharges"
+        type: "float"
+        description: "总费用"
+      - name: "Churn"
+        type: "string"
+        description: "是否流失 (Yes/No)"
+
     statistics:
-      churn_rate: "25%"
-      customers: 750000
-      date_range: "2023-01-01 to 2024-12-31"
+      churn_rate: "26.5%"
+      customers: 7043
+      imbalance_ratio: "3:1"
 
     preprocessing:
-      missing_values: "2%"
-      class_imbalance: "yes (4:1 ratio)"
+      missing_values: "0.15% (TotalCharges有11个空值)"
+      class_imbalance: "yes (约 73:27)"
 
     metadata:
       created_at: "2025-01-15"
+      updated_at: "2026-04-24"
       status: "active"
 
   - id: "DS-S3-P05-RETAIL"

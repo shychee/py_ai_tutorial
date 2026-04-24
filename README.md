@@ -103,14 +103,22 @@ uv pip install -e ".[stage3]"
 uv pip install -e ".[all]"
 ```
 
-#### 4. 下载数据集
+#### 4. 获取数据集
+
+P01-P03 的数据集已包含在仓库中，clone 后即可使用。
+
+P04 使用 Kaggle 真实数据集，需手动下载：
 
 ```bash
-# 下载阶段3数据集（~2GB）
-python scripts/data/download-stage3.py
+# 方式1: 使用 Kaggle CLI
+pip install kaggle
+kaggle datasets download -d blastchar/telco-customer-churn -p data/stage3/ --unzip
 
-# 验证数据完整性
-python scripts/data/verify.py --stage 3
+# 方式2: 浏览器下载
+# 访问 https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+
+# 检查数据集状态
+python scripts/data/download-stage3.py
 ```
 
 #### 5. 运行首个项目
