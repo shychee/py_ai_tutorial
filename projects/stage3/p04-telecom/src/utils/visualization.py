@@ -1,6 +1,5 @@
 """
 可视化工具模块
-提供RFM分析和模型评估的可视化功能
 """
 
 from typing import Optional, Tuple
@@ -12,176 +11,94 @@ import seaborn as sns
 from sklearn.metrics import roc_curve, auc, confusion_matrix
 
 
-def setup_plot_style(style: str = "seaborn", palette: str = "Set2") -> None:
-    """设置绘图样式
-
-    Args:
-        style: matplotlib样式
-        palette: seaborn调色板
-    """
+def setup_plot_style(style: str = "seaborn-v0_8", palette: str = "Set2") -> None:
     plt.style.use(style)
     sns.set_palette(palette)
-    plt.rcParams["font.sans-serif"] = ["Arial Unicode MS", "SimHei"]  # 支持中文
-    plt.rcParams["axes.unicode_minus"] = False  # 支持负号
+    plt.rcParams["font.sans-serif"] = ["Arial Unicode MS", "SimHei"]
+    plt.rcParams["axes.unicode_minus"] = False
 
 
-def plot_rfm_distribution(
-    rfm_data: pd.DataFrame,
+def _save_or_show(output_path: Optional[str]) -> None:
+    if output_path:
+        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
+        plt.savefig(output_path, dpi=100, bbox_inches="tight")
+        plt.close()
+    else:
+        plt.show()
+
+
+def plot_churn_by_feature(
+    df: pd.DataFrame, feature: str,
     output_path: Optional[str] = None,
-    figsize: Tuple[int, int] = (12, 8),
+    figsize: Tuple[int, int] = (10, 6),
 ) -> None:
-    """绘制RFM分布图
-
-    Args:
-        rfm_data: 包含R、F、M评分的DataFrame
-        output_path: 输出文件路径
-        figsize: 图表大小
-    """
-    fig, axes = plt.subplots(2, 2, figsize=figsize)
-
-    # R、F、M分布直方图
-    for idx, col in enumerate(["recency_score", "frequency_score", "monetary_score"]):
-        ax = axes[idx // 2, idx % 2]
-        sns.histplot(rfm_data[col], bins=5, ax=ax, kde=False)
-        ax.set_title(f"{col.split('_')[0].upper()}评分分布", fontsize=14)
-        ax.set_xlabel("评分", fontsize=12)
-        ax.set_ylabel("客户数量", fontsize=12)
-
-    # RFM总分分布
-    ax = axes[1, 1]
-    sns.histplot(rfm_data["rfm_score"], bins=15, ax=ax, kde=True)
-    ax.set_title("RFM总分分布", fontsize=14)
-    ax.set_xlabel("RFM总分", fontsize=12)
-    ax.set_ylabel("客户数量", fontsize=12)
-
-    plt.tight_layout()
-
-    if output_path:
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
-    else:
-        plt.show()
-
-
-def plot_customer_segments(
-    segments: pd.Series, output_path: Optional[str] = None, figsize: Tuple[int, int] = (10, 6)
-) -> None:
-    """绘制客户细分饼图
-
-    Args:
-        segments: 客户细分标签Series
-        output_path: 输出文件路径
-        figsize: 图表大小
-    """
-    segment_counts = segments.value_counts()
-
+    """按特征分组绘制流失率对比图"""
     plt.figure(figsize=figsize)
-    plt.pie(
-        segment_counts.values,
-        labels=segment_counts.index,
-        autopct="%1.1f%%",
-        startangle=90,
-    )
-    plt.title("客户细分分布", fontsize=14)
-    plt.axis("equal")
 
-    if output_path:
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
+    if df[feature].dtype in ["float64", "int64"] and df[feature].nunique() > 10:
+        df_no = df[df["Churn"] == 0][feature]
+        df_yes = df[df["Churn"] == 1][feature]
+        plt.hist(df_no, bins=30, alpha=0.5, label="未流失", density=True)
+        plt.hist(df_yes, bins=30, alpha=0.5, label="已流失", density=True)
+        plt.xlabel(feature)
+        plt.ylabel("密度")
+        plt.legend()
     else:
-        plt.show()
+        ct = pd.crosstab(df[feature], df["Churn"], normalize="index")
+        ct.columns = ["未流失", "已流失"]
+        ct.plot(kind="bar", stacked=True, ax=plt.gca())
+        plt.ylabel("比例")
+        plt.xticks(rotation=45, ha="right")
+
+    plt.title(f"流失率 vs {feature}")
+    plt.tight_layout()
+    _save_or_show(output_path)
 
 
 def plot_roc_curve(
-    y_true: np.ndarray,
-    y_pred_proba: np.ndarray,
+    y_true: np.ndarray, y_pred_proba: np.ndarray,
     output_path: Optional[str] = None,
     figsize: Tuple[int, int] = (8, 6),
 ) -> None:
-    """绘制ROC曲线
-
-    Args:
-        y_true: 真实标签
-        y_pred_proba: 预测概率
-        output_path: 输出文件路径
-        figsize: 图表大小
-    """
     fpr, tpr, _ = roc_curve(y_true, y_pred_proba)
     roc_auc = auc(fpr, tpr)
 
     plt.figure(figsize=figsize)
-    plt.plot(fpr, tpr, color="darkorange", lw=2, label=f"ROC curve (AUC = {roc_auc:.3f})")
+    plt.plot(fpr, tpr, color="darkorange", lw=2, label=f"ROC (AUC = {roc_auc:.3f})")
     plt.plot([0, 1], [0, 1], color="navy", lw=2, linestyle="--", label="Random")
     plt.xlim([0.0, 1.0])
     plt.ylim([0.0, 1.05])
-    plt.xlabel("False Positive Rate", fontsize=12)
-    plt.ylabel("True Positive Rate", fontsize=12)
-    plt.title("ROC曲线 - 流失预测模型", fontsize=14)
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("ROC 曲线 - 流失预测")
     plt.legend(loc="lower right")
     plt.grid(True, alpha=0.3)
-
-    if output_path:
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
-    else:
-        plt.show()
+    _save_or_show(output_path)
 
 
 def plot_confusion_matrix(
-    y_true: np.ndarray,
-    y_pred: np.ndarray,
-    labels: list = None,
+    y_true: np.ndarray, y_pred: np.ndarray,
     output_path: Optional[str] = None,
     figsize: Tuple[int, int] = (8, 6),
 ) -> None:
-    """绘制混淆矩阵
-
-    Args:
-        y_true: 真实标签
-        y_pred: 预测标签
-        labels: 类别标签列表
-        output_path: 输出文件路径
-        figsize: 图表大小
-    """
-    if labels is None:
-        labels = ["未流失", "已流失"]
-
+    labels = ["未流失", "已流失"]
     cm = confusion_matrix(y_true, y_pred)
 
     plt.figure(figsize=figsize)
-    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=labels, yticklabels=labels)
-    plt.title("混淆矩阵", fontsize=14)
-    plt.ylabel("真实标签", fontsize=12)
-    plt.xlabel("预测标签", fontsize=12)
-
-    if output_path:
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
-    else:
-        plt.show()
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues",
+                xticklabels=labels, yticklabels=labels)
+    plt.title("混淆矩阵")
+    plt.ylabel("真实标签")
+    plt.xlabel("预测标签")
+    _save_or_show(output_path)
 
 
 def plot_feature_importance(
-    feature_names: list,
-    importances: np.ndarray,
+    feature_names: list, importances: np.ndarray,
     top_n: int = 15,
     output_path: Optional[str] = None,
     figsize: Tuple[int, int] = (10, 8),
 ) -> None:
-    """绘制特征重要性图
-
-    Args:
-        feature_names: 特征名称列表
-        importances: 特征重要性数组
-        top_n: 显示前N个重要特征
-        output_path: 输出文件路径
-        figsize: 图表大小
-    """
-    # 按重要性排序
     indices = np.argsort(importances)[::-1][:top_n]
     top_features = [feature_names[i] for i in indices]
     top_importances = importances[indices]
@@ -189,13 +106,7 @@ def plot_feature_importance(
     plt.figure(figsize=figsize)
     plt.barh(range(len(top_features)), top_importances, align="center")
     plt.yticks(range(len(top_features)), top_features)
-    plt.xlabel("重要性", fontsize=12)
-    plt.title(f"Top {top_n} 特征重要性", fontsize=14)
-    plt.gca().invert_yaxis()  # 最重要的在上面
-
-    if output_path:
-        Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(output_path, dpi=100, bbox_inches="tight")
-        plt.close()
-    else:
-        plt.show()
+    plt.xlabel("重要性")
+    plt.title(f"Top {top_n} 特征重要性")
+    plt.gca().invert_yaxis()
+    _save_or_show(output_path)
