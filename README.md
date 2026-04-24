@@ -131,14 +131,14 @@ uv pip install jupyterlab
 # 启动Jupyter Lab
 jupyter lab
 
-# 在浏览器中打开 notebooks/stage3/p01-healthcare.ipynb
+# 在浏览器中打开 projects/stage3/p01-healthcare/notebooks/analysis.ipynb
 # 按顺序运行每个cell
 ```
 
 **Python脚本方式**（推荐有经验者）:
 ```bash
 # 进入项目目录
-cd docs/stage3/projects/p01-healthcare
+cd projects/stage3/p01-healthcare
 
 # 运行分析脚本
 python src/analyze.py --config configs/default.yaml
@@ -156,6 +156,8 @@ ls outputs/
 
 ## 📚 学习路径
 
+> **目录说明**: `notebooks/stage3/` 包含基础教学 notebook（NumPy、Pandas、可视化等），`projects/stage3/` 包含项目实战代码和 notebook。建议先学基础，再做项目。
+
 ### 阶段3：机器学习与数据挖掘（P1优先级，MVP核心）
 
 **学习目标**: 掌握数据分析与传统ML算法，能完成端到端机器学习项目
@@ -170,7 +172,7 @@ ls outputs/
 1. 朝阳医院指标搭建及销售数据汇总
 2. 服装零售销售数据分析（优衣库4P分析）
 3. 银行电话营销活动分析（分类模型）
-4. 通讯公司客户响应速度提升（RFM分析）
+4. 电信客户流失预测（特征工程 + 随机森林）
 5. 零售超市经营分析（SWOT分析）
 6. 滴滴出行运营数据异常分析
 7. 淘宝百万级用户行为分析（年度复盘）
