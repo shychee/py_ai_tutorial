@@ -1,6 +1,6 @@
 """
 数据加载模块
-负责从文件加载原始数据
+加载 Kaggle Telco Customer Churn 数据集
 """
 
 from pathlib import Path
@@ -11,100 +11,52 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def load_telecom_data(
+def load_telco_data(
     file_path: Union[str, Path],
     encoding: str = "utf-8",
 ) -> pd.DataFrame:
-    """加载通讯公司客户数据
+    """加载 Kaggle Telco Customer Churn 数据集
 
     Args:
         file_path: 数据文件路径
         encoding: 文件编码
 
     Returns:
-        pd.DataFrame: 加载的数据
-
-    Raises:
-        FileNotFoundError: 文件不存在
-        pd.errors.ParserError: 文件格式错误
-
-    Examples:
-        >>> df = load_telecom_data("data/telecom_customer_data.csv")
-        >>> print(f"加载了{len(df)}条客户记录")
+        加载并做基础清洗后的 DataFrame
     """
     file_path = Path(file_path)
-
     if not file_path.exists():
-        error_msg = f"数据文件不存在: {file_path}"
-        logger.error(error_msg)
-        raise FileNotFoundError(error_msg)
+        raise FileNotFoundError(
+            f"数据文件不存在: {file_path}\n"
+            "请从 Kaggle 下载: https://www.kaggle.com/datasets/blastchar/telco-customer-churn"
+        )
 
-    try:
-        logger.info(f"开始加载数据: {file_path}")
-        df = pd.read_csv(file_path, encoding=encoding)
-        logger.info(f"成功加载{len(df)}行, {len(df.columns)}列数据")
+    logger.info(f"加载数据: {file_path}")
+    df = pd.read_csv(file_path, encoding=encoding)
+    logger.info(f"加载 {len(df)} 行, {len(df.columns)} 列")
 
-        # 基本数据验证
-        required_columns = [
-            "customer_id",
-            "registration_date",
-            "last_transaction_date",
-            "transaction_count",
-            "total_amount",
-            "churn",
-        ]
+    required = ["customerID", "tenure", "MonthlyCharges", "TotalCharges", "Churn"]
+    missing = [c for c in required if c not in df.columns]
+    if missing:
+        raise ValueError(f"数据缺少必需列: {missing}")
 
-        missing_columns = [col for col in required_columns if col not in df.columns]
-        if missing_columns:
-            raise ValueError(f"数据缺少必需列: {missing_columns}")
+    # TotalCharges 有空字符串，转为数值
+    df["TotalCharges"] = pd.to_numeric(df["TotalCharges"], errors="coerce")
 
-        # 转换日期列
-        date_columns = ["registration_date", "last_transaction_date"]
-        for col in date_columns:
-            if col in df.columns:
-                df[col] = pd.to_datetime(df[col], errors="coerce")
-                logger.debug(f"已将{col}转换为日期类型")
+    # Churn 转为 0/1
+    df["Churn"] = (df["Churn"] == "Yes").astype(int)
 
-        return df
-
-    except pd.errors.ParserError as e:
-        logger.error(f"文件格式错误: {e}")
-        raise
-    except Exception as e:
-        logger.error(f"加载数据时发生错误: {e}")
-        raise
+    logger.info(f"流失率: {df['Churn'].mean():.2%}")
+    return df
 
 
 def get_data_summary(df: pd.DataFrame) -> dict:
-    """获取数据摘要信息
-
-    Args:
-        df: 数据DataFrame
-
-    Returns:
-        dict: 包含数据摘要的字典
-
-    Examples:
-        >>> summary = get_data_summary(df)
-        >>> print(f"流失率: {summary['churn_rate']:.2%}")
-    """
-    summary = {
+    """获取数据摘要"""
+    return {
         "total_records": len(df),
         "num_features": len(df.columns),
-        "missing_values": df.isnull().sum().to_dict(),
-        "churn_rate": df["churn"].mean() if "churn" in df.columns else None,
-        "date_range": {
-            "min_registration": df["registration_date"].min()
-            if "registration_date" in df.columns
-            else None,
-            "max_registration": df["registration_date"].max()
-            if "registration_date" in df.columns
-            else None,
-            "latest_transaction": df["last_transaction_date"].max()
-            if "last_transaction_date" in df.columns
-            else None,
-        },
+        "churn_rate": df["Churn"].mean(),
+        "missing_values": df.isnull().sum().sum(),
+        "tenure_range": f"{df['tenure'].min()}-{df['tenure'].max()} 月",
+        "monthly_charges_range": f"${df['MonthlyCharges'].min():.0f}-${df['MonthlyCharges'].max():.0f}",
     }
-
-    logger.info(f"数据摘要: {summary['total_records']}条记录, 流失率: {summary['churn_rate']:.2%}")
-    return summary
