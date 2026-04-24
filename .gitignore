@@ -109,3 +109,9 @@ dmypy.json
 
 # Superpowers specs and plans
 docs/superpowers/
+
+# Claude Code local config
+.claude/
+
+# Specs (internal planning docs)
+specs/
