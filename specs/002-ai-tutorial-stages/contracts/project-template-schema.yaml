@@ -1,0 +1,489 @@
+# Project Template Structure Schema
+# 定义所有AI教程项目的标准目录结构与文件规范
+
+version: "1.0.0"
+description: |
+  标准项目模板结构，适用于阶段3-5的所有项目。
+  每个项目必须遵循此结构以确保一致性与可维护性。
+
+# 目录结构定义
+structure:
+  root:
+    required_files:
+      - name: README.md
+        description: 项目说明文档
+        schema:
+          type: markdown
+          sections:
+            - name: 项目概述
+              required: true
+              content: 项目背景、目标、业务场景描述（2-3段）
+            - name: 数据集说明
+              required: true
+              content: 数据来源、格式、大小、字段说明
+            - name: 环境要求
+              required: true
+              content: Python版本、依赖库、硬件要求（CPU/GPU）
+            - name: 快速开始
+              required: true
+              content: 安装依赖、运行脚本/Notebook的步骤
+            - name: 项目结构
+              required: true
+              content: 目录树与文件说明
+            - name: 评估指标
+              required: true
+              content: 预期指标范围、评分标准、如何验证结果
+            - name: 交付物
+              required: true
+              content: 需要提交的文件清单（模型、报告、图表等）
+            - name: 常见问题
+              required: false
+              content: FAQ与故障排查
+
+      - name: pyproject.toml
+        description: 项目配置与依赖管理（uv标准）
+        schema:
+          type: toml
+          required_sections:
+            - name: project
+              fields:
+                - name: name
+                  type: string
+                  example: "stage3-p01-healthcare"
+                - name: version
+                  type: string
+                  example: "0.1.0"
+                - name: description
+                  type: string
+                  example: "朝阳医院指标搭建及销售数据汇总"
+                - name: requires-python
+                  type: string
+                  example: ">=3.9"
+                - name: dependencies
+                  type: array
+                  example:
+                    - "pandas>=2.1.0,<3.0.0"
+                    - "numpy>=1.26.0,<2.0.0"
+                    - "matplotlib>=3.8.0,<4.0.0"
+                    - "scikit-learn>=1.3.0,<2.0.0"
+                - name: authors
+                  type: array
+                  example:
+                    - name: "教程团队"
+                      email: "tutorial@example.com"
+            - name: project.optional-dependencies
+              fields:
+                - name: dev
+                  type: array
+                  description: 开发依赖
+                  example:
+                    - "pytest>=7.4.0"
+                    - "black>=23.0.0"
+                    - "mypy>=1.5.0"
+                - name: gpu
+                  type: array
+                  description: GPU加速依赖（阶段4/5）
+                  example:
+                    - "torch>=2.1.0"
+                    - "torchvision>=0.16.0"
+
+      - name: .python-version
+        description: Python版本锁定（uv自动识别）
+        schema:
+          type: plaintext
+          content: "3.11"  # 示例
+
+      - name: .gitignore
+        description: Git忽略规则
+        schema:
+          type: plaintext
+          required_patterns:
+            - ".venv/"
+            - "*.pyc"
+            - "__pycache__/"
+            - "outputs/"
+            - "data/cache/"
+            - ".DS_Store"
+            - "*.log"
+
+    required_directories:
+      - name: data
+        description: 数据目录
+        subdirectories:
+          - name: raw
+            description: 原始数据（只读，不修改）
+            required: false
+          - name: processed
+            description: 处理后的数据
+            required: false
+          - name: cache
+            description: 缓存数据（.gitignore排除）
+            required: false
+        files:
+          - name: README.md
+            description: 数据说明、下载指引、校验方式
+            required: true
+          - name: download.sh
+            description: 数据下载脚本（可选，若需在线获取）
+            required: false
+
+      - name: configs
+        description: 配置文件目录
+        files:
+          - name: default.yaml
+            description: 默认配置（超参数、路径等）
+            required: true
+            schema:
+              type: yaml
+              sections:
+                - name: model
+                  description: 模型配置
+                  fields:
+                    - learning_rate: 0.001
+                    - batch_size: 32
+                    - epochs: 10
+                - name: data
+                  description: 数据配置
+                  fields:
+                    - train_split: 0.8
+                    - val_split: 0.1
+                    - test_split: 0.1
+                - name: paths
+                  description: 路径配置
+                  fields:
+                    - data_dir: "data/"
+                    - output_dir: "outputs/"
+          - name: cpu.yaml
+            description: CPU环境配置（覆盖default.yaml部分参数）
+            required: false
+          - name: gpu.yaml
+            description: GPU环境配置
+            required: false
+
+      - name: src
+        description: 源代码目录
+        required: true
+        subdirectories:
+          - name: models
+            description: 模型定义
+            files:
+              - name: __init__.py
+                required: true
+              - name: model.py
+                description: 模型类定义（遵循PEP 8、类型注解、文档字符串）
+                required: true
+          - name: data
+            description: 数据处理模块
+            files:
+              - name: __init__.py
+                required: true
+              - name: loader.py
+                description: 数据加载函数
+                required: true
+              - name: preprocessor.py
+                description: 数据预处理（清洗、特征工程）
+                required: false
+          - name: utils
+            description: 工具函数
+            files:
+              - name: __init__.py
+                required: true
+              - name: logger.py
+                description: 日志配置
+                required: true
+              - name: metrics.py
+                description: 评估指标计算
+                required: true
+        files:
+          - name: __init__.py
+            required: true
+          - name: train.py
+            description: 训练脚本（CLI入口）
+            required: true
+            schema:
+              type: python
+              required_sections:
+                - imports
+                - argparse/typer CLI定义
+                - main函数
+                - if __name__ == "__main__"
+          - name: evaluate.py
+            description: 评估脚本
+            required: true
+          - name: predict.py
+            description: 推理脚本（可选）
+            required: false
+
+      - name: notebooks
+        description: Jupyter Notebook（教学版）
+        files:
+          - name: "01-data-exploration.ipynb"
+            description: 数据探索与可视化
+            required: true
+          - name: "02-model-training.ipynb"
+            description: 模型训练与调参
+            required: true
+          - name: "03-evaluation.ipynb"
+            description: 模型评估与结果分析
+            required: true
+        notes: |
+          Notebook按数字前缀排序，建议每个Notebook聚焦单一任务。
+          必须包含Markdown说明、注释与保留输出（图表、指标）。
+
+      - name: tests
+        description: 单元测试目录
+        files:
+          - name: __init__.py
+            required: true
+          - name: test_data_loader.py
+            description: 测试数据加载函数
+            required: false
+          - name: test_model.py
+            description: 测试模型前向传播
+            required: false
+          - name: test_metrics.py
+            description: 测试指标计算
+            required: false
+        notes: |
+          使用pytest框架，测试文件以test_开头。
+          至少提供1个示例测试，鼓励学员补充更多。
+
+      - name: outputs
+        description: 输出目录（.gitignore排除，不提交到仓库）
+        subdirectories:
+          - name: models
+            description: 保存的模型权重/checkpoint
+            required: true
+          - name: logs
+            description: 训练日志
+            required: true
+          - name: figures
+            description: 可视化图表
+            required: true
+          - name: reports
+            description: 实验报告（Markdown/HTML）
+            required: true
+        files:
+          - name: experiment_info.json
+            description: 实验元数据（时间、环境、配置、指标）
+            required: true
+            schema:
+              type: json
+              fields:
+                - timestamp: "2025-11-05T10:30:00Z"
+                - python_version: "3.11.5"
+                - framework: "pytorch"
+                - framework_version: "2.1.0"
+                - cuda_version: "11.8"
+                - device: "cuda:0"
+                - seed: 42
+                - config_file: "configs/default.yaml"
+                - metrics:
+                    accuracy: 0.934
+                    loss: 0.187
+
+# 文件命名规范
+naming_conventions:
+  general:
+    - "使用小写字母与连字符（kebab-case）命名文件与目录，如data-loader.py"
+    - "Python模块使用下划线（snake_case），如data_loader.py"
+    - "Notebook使用数字前缀 + 描述性名称，如01-data-exploration.ipynb"
+    - "避免中文文件名与空格，使用英文与连字符"
+
+  python_code:
+    - "类名使用大驼峰（PascalCase），如MyModel"
+    - "函数与变量使用蛇形（snake_case），如load_data"
+    - "常量使用全大写蛇形，如MAX_EPOCHS"
+    - "私有方法/变量以下划线开头，如_internal_func"
+
+  config_files:
+    - "YAML配置文件使用小写连字符，如default.yaml、gpu-config.yaml"
+    - "配置键使用蛇形，如learning_rate（不要用learningRate或learning-rate）"
+
+# 代码质量要求
+code_quality_standards:
+  python:
+    - rule: "遵循PEP 8代码规范"
+      enforcement: "使用black格式化，使用flake8/ruff检查"
+    - rule: "所有函数必须有类型注解"
+      example: |
+        def load_data(file_path: str, sep: str = ",") -> pd.DataFrame:
+            """加载CSV数据"""
+            return pd.read_csv(file_path, sep=sep)
+    - rule: "所有函数/类必须有文档字符串"
+      format: "Google风格或NumPy风格"
+      example: |
+        def train_model(model: nn.Module, dataloader: DataLoader, epochs: int) -> dict:
+            """训练模型
+
+            Args:
+                model: PyTorch模型
+                dataloader: 训练数据加载器
+                epochs: 训练轮数
+
+            Returns:
+                dict: 训练历史（loss与metrics）
+            """
+            ...
+    - rule: "必须包含异常处理"
+      example: |
+        try:
+            data = pd.read_csv(file_path)
+        except FileNotFoundError:
+            logger.error(f"文件不存在: {file_path}")
+            raise
+        except pd.errors.ParserError:
+            logger.error(f"文件格式错误: {file_path}")
+            raise
+    - rule: "必须使用logging模块记录日志"
+      example: |
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.info("开始训练模型...")
+    - rule: "禁止使用全局变量与魔法数字"
+      example: |
+        # Bad
+        threshold = 0.5  # 魔法数字
+
+        # Good
+        CLASSIFICATION_THRESHOLD = 0.5  # 常量
+        # 或从配置文件读取
+        threshold = config['model']['threshold']
+
+  notebooks:
+    - rule: "每个cell必须包含注释说明"
+    - rule: "关键输出（图表、指标）必须保留"
+    - rule: "使用Markdown cell分隔逻辑章节"
+    - rule: "导入语句集中在首个cell"
+    - rule: "避免单个cell过长（建议<30行代码）"
+
+# 交付物清单
+deliverables:
+  required:
+    - name: 训练好的模型
+      location: "outputs/models/"
+      format: "*.pth（PyTorch）或*.h5（TensorFlow）或*.pkl（scikit-learn）"
+      validation: "必须能成功加载并推理"
+
+    - name: 实验报告
+      location: "outputs/reports/report.md"
+      format: "Markdown"
+      sections:
+        - "项目背景与目标"
+        - "数据说明与预处理步骤"
+        - "模型选择与超参数"
+        - "实验结果（指标、图表）"
+        - "结论与改进方向"
+
+    - name: 评估指标文件
+      location: "outputs/experiment_info.json"
+      format: "JSON"
+      validation: "必须包含timestamp、metrics等字段"
+
+    - name: 可视化图表
+      location: "outputs/figures/"
+      format: "PNG或SVG"
+      examples:
+        - "训练曲线（loss/accuracy vs epoch）"
+        - "混淆矩阵（分类任务）"
+        - "特征重要性图（可选）"
+
+  optional:
+    - name: 训练日志
+      location: "outputs/logs/train.log"
+    - name: 测试集预测结果
+      location: "outputs/predictions.csv"
+    - name: 超参数搜索记录
+      location: "outputs/hyperparams.json"
+
+# 评估脚本接口规范
+evaluation_interface:
+  script: "scripts/evaluation/run-eval.py"
+  cli:
+    usage: "python scripts/evaluation/run-eval.py --project <project_id> --submission <path>"
+    arguments:
+      - name: --project
+        type: string
+        required: true
+        description: "项目ID，如stage3-p01-healthcare"
+      - name: --submission
+        type: string
+        required: true
+        description: "学员提交目录路径"
+      - name: --num-runs
+        type: integer
+        required: false
+        default: 1
+        description: "运行次数（取平均）"
+      - name: --output
+        type: string
+        required: false
+        default: "evaluation_result.json"
+        description: "评估结果输出路径"
+
+  output_format:
+    type: json
+    schema:
+      project_id: "stage3-p01-healthcare"
+      learner_id: "user_12345"
+      timestamp: "2025-11-05T12:00:00Z"
+      validation:
+        structure_check: true
+        code_quality_check: true
+        deliverables_check: true
+      quantitative_metrics:
+        code_pass_rate: 95.0
+        data_coverage: 98.0
+      qualitative_scores:
+        code_quality: 85
+        data_processing: 90
+        analysis_depth: 80
+        visualization: 85
+      total_score: 87
+      passed: true
+      feedback:
+        - "代码质量优秀，遵循PEP 8规范"
+        - "数据处理全面，正确处理缺失值与异常值"
+        - "建议增加更多维度的分析"
+
+# 版本控制建议
+version_control:
+  gitignore_patterns:
+    - ".venv/"
+    - "*.pyc"
+    - "__pycache__/"
+    - "outputs/"
+    - "data/cache/"
+    - ".DS_Store"
+    - "*.log"
+    - ".ipynb_checkpoints/"
+
+  commit_conventions:
+    - "feat: 新增功能"
+    - "fix: 修复bug"
+    - "docs: 文档更新"
+    - "refactor: 代码重构"
+    - "test: 测试相关"
+
+  branching:
+    - "main: 稳定版本"
+    - "develop: 开发分支"
+    - "feature/*: 功能分支"
+
+# 平台差异处理
+platform_compatibility:
+  path_handling:
+    - "必须使用pathlib.Path处理路径，不要用字符串拼接"
+    - "示例：data_path = Path('data') / 'raw' / 'file.csv'"
+
+  encoding:
+    - "所有文件读写必须明确指定encoding='utf-8'"
+    - "示例：with open(file_path, 'r', encoding='utf-8') as f:"
+
+  line_endings:
+    - "在pyproject.toml中配置：[tool.black] line-length = 88, target-version = ['py39']"
+    - "使用black自动处理行尾符"
+
+  dependencies:
+    - "使用pyproject.toml的platform_system标记区分平台依赖"
+    - "示例：'tensorflow-macos; platform_machine==\"arm64\"'"

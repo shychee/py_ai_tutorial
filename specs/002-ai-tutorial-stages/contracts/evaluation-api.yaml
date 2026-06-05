@@ -1,0 +1,592 @@
+# Evaluation API Specification
+# 定义自动评估系统的API接口与数据格式
+
+openapi: 3.0.3
+info:
+  title: AI Tutorial Evaluation API
+  description: |
+    AI教程项目自动评估系统API，用于验证学员提交、计算指标与生成评分报告。
+    支持阶段3-5的所有项目类型（数据分析、机器学习、深度学习、LLM应用）。
+  version: 1.0.0
+  contact:
+    name: 教程团队
+    email: tutorial@example.com
+
+servers:
+  - url: http://localhost:8000
+    description: 本地开发服务器
+  - url: https://eval.tutorial.example.com
+    description: 生产评估服务器
+
+paths:
+  /api/v1/evaluate:
+    post:
+      summary: 提交项目进行评估
+      description: |
+        上传学员项目提交物（代码 + 模型 + 报告），执行结构验证、代码质量检查、
+        指标计算与评分，返回详细评估报告。
+      operationId: evaluateProject
+      tags:
+        - Evaluation
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - project_id
+                - learner_id
+                - submission_file
+              properties:
+                project_id:
+                  type: string
+                  description: 项目ID
+                  example: "stage3-p01-healthcare"
+                learner_id:
+                  type: string
+                  description: 学员唯一标识
+                  example: "user_12345"
+                submission_file:
+                  type: string
+                  format: binary
+                  description: 提交物压缩包（.zip或.tar.gz，包含完整项目目录）
+                num_runs:
+                  type: integer
+                  description: 运行次数（用于多次运行取平均，应对随机性）
+                  default: 1
+                  minimum: 1
+                  maximum: 5
+                config_override:
+                  type: object
+                  description: 覆盖默认评估配置（可选）
+                  properties:
+                    timeout_seconds:
+                      type: integer
+                      description: 单次运行超时时间（秒）
+                      default: 300
+                    seed:
+                      type: integer
+                      description: 随机种子
+                      default: 42
+      responses:
+        '200':
+          description: 评估成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvaluationResult'
+        '400':
+          description: 请求参数错误（project_id不存在、文件格式错误等）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: 提交物验证失败（结构不完整、缺少交付物等）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationError'
+        '500':
+          description: 服务器内部错误（代码执行崩溃、资源不足等）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v1/evaluate/status/{task_id}:
+    get:
+      summary: 查询评估任务状态
+      description: |
+        对于长时间运行的评估任务（如深度学习训练），返回异步任务状态。
+      operationId: getEvaluationStatus
+      tags:
+        - Evaluation
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: 评估任务ID（由POST /evaluate返回）
+      responses:
+        '200':
+          description: 任务状态
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - task_id
+                  - status
+                properties:
+                  task_id:
+                    type: string
+                  status:
+                    type: string
+                    enum: [pending, running, completed, failed]
+                  progress:
+                    type: number
+                    format: float
+                    description: 进度百分比（0-100）
+                  message:
+                    type: string
+                    description: 状态消息（如"正在运行训练脚本..."）
+                  result:
+                    $ref: '#/components/schemas/EvaluationResult'
+                    description: 评估结果（仅当status=completed时存在）
+        '404':
+          description: 任务ID不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v1/projects:
+    get:
+      summary: 获取所有项目列表
+      description: 返回所有可评估的项目信息（ID、名称、阶段、难度等）
+      operationId: listProjects
+      tags:
+        - Projects
+      parameters:
+        - name: stage_id
+          in: query
+          schema:
+            type: string
+          description: 按阶段筛选（如"stage3"）
+        - name: difficulty
+          in: query
+          schema:
+            type: string
+            enum: [easy, medium, hard]
+          description: 按难度筛选
+      responses:
+        '200':
+          description: 项目列表
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  projects:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProjectInfo'
+
+  /api/v1/projects/{project_id}:
+    get:
+      summary: 获取项目详情
+      description: 返回指定项目的完整信息（描述、评分标准、预期指标等）
+      operationId: getProjectDetails
+      tags:
+        - Projects
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: 项目详情
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectDetails'
+        '404':
+          description: 项目不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/v1/metrics:
+    get:
+      summary: 获取所有指标定义
+      description: 返回评估系统支持的所有量化指标（准确率、F1、ROUGE等）
+      operationId: listMetrics
+      tags:
+        - Metrics
+      responses:
+        '200':
+          description: 指标列表
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  metrics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MetricDefinition'
+
+components:
+  schemas:
+    EvaluationResult:
+      type: object
+      required:
+        - task_id
+        - project_id
+        - learner_id
+        - timestamp
+        - validation
+        - quantitative_metrics
+        - qualitative_scores
+        - total_score
+        - passed
+      properties:
+        task_id:
+          type: string
+          description: 评估任务唯一ID
+          example: "eval_20251105_abc123"
+        project_id:
+          type: string
+          description: 项目ID
+          example: "stage3-p01-healthcare"
+        learner_id:
+          type: string
+          description: 学员ID
+          example: "user_12345"
+        timestamp:
+          type: string
+          format: date-time
+          description: 评估完成时间
+          example: "2025-11-05T12:30:00Z"
+        validation:
+          type: object
+          description: 结构与交付物验证结果
+          properties:
+            structure_check:
+              type: boolean
+              description: 目录结构是否符合模板要求
+            required_files_check:
+              type: boolean
+              description: 必需文件是否齐全
+            code_quality_check:
+              type: boolean
+              description: 代码质量检查（PEP 8、类型注解等）
+            deliverables_check:
+              type: boolean
+              description: 交付物是否完整（模型、报告、图表等）
+            validation_errors:
+              type: array
+              items:
+                type: string
+              description: 验证错误列表
+              example:
+                - "缺少文件: outputs/experiment_info.json"
+                - "代码不符合PEP 8规范: src/train.py:42"
+        quantitative_metrics:
+          type: object
+          description: 量化指标结果（自动计算）
+          additionalProperties:
+            type: number
+            format: float
+          example:
+            accuracy: 0.934
+            f1_score: 0.921
+            code_pass_rate: 95.0
+            data_coverage: 98.0
+        qualitative_scores:
+          type: object
+          description: 定性评分（基于Rubric维度）
+          additionalProperties:
+            type: integer
+          example:
+            code_quality: 85
+            data_processing: 90
+            analysis_depth: 80
+            visualization: 85
+        total_score:
+          type: integer
+          description: 总分（0-100）
+          example: 87
+        passed:
+          type: boolean
+          description: 是否通过（total_score >= passing_score）
+          example: true
+        passing_score:
+          type: integer
+          description: 及格分（来自Rubric定义）
+          example: 60
+        feedback:
+          type: array
+          items:
+            type: string
+          description: 评估反馈（优点与改进建议）
+          example:
+            - "代码质量优秀，遵循PEP 8规范并有完整文档字符串"
+            - "数据处理全面，正确处理缺失值、异常值与重复项"
+            - "建议增加更多维度的分析（如时间序列趋势、类别对比）"
+            - "可视化图表清晰，但缺少标题与图例"
+        execution_logs:
+          type: array
+          items:
+            type: object
+            properties:
+              run_id:
+                type: integer
+                description: 运行次数（1-based）
+              stdout:
+                type: string
+                description: 标准输出（截断至最后1000行）
+              stderr:
+                type: string
+                description: 标准错误
+              exit_code:
+                type: integer
+                description: 退出码（0表示成功）
+              metrics:
+                type: object
+                description: 本次运行的指标
+        environment_info:
+          type: object
+          description: 评估环境信息
+          properties:
+            python_version:
+              type: string
+              example: "3.11.5"
+            os:
+              type: string
+              example: "Linux"
+            cpu:
+              type: string
+              example: "Intel Xeon E5-2686 v4"
+            gpu:
+              type: string
+              example: "NVIDIA Tesla T4"
+            frameworks:
+              type: object
+              additionalProperties:
+                type: string
+              example:
+                torch: "2.1.0"
+                pandas: "2.1.3"
+
+    ValidationError:
+      type: object
+      required:
+        - error_type
+        - message
+        - validation_errors
+      properties:
+        error_type:
+          type: string
+          example: "ValidationError"
+        message:
+          type: string
+          example: "提交物验证失败"
+        validation_errors:
+          type: array
+          items:
+            type: object
+            properties:
+              category:
+                type: string
+                enum: [structure, code_quality, deliverables]
+              severity:
+                type: string
+                enum: [error, warning]
+              file:
+                type: string
+                description: 错误所在文件
+              line:
+                type: integer
+                description: 错误所在行号（若适用）
+              message:
+                type: string
+                description: 错误描述
+          example:
+            - category: structure
+              severity: error
+              file: "outputs/experiment_info.json"
+              message: "必需文件缺失"
+            - category: code_quality
+              severity: warning
+              file: "src/train.py"
+              line: 42
+              message: "函数缺少文档字符串"
+
+    Error:
+      type: object
+      required:
+        - error_type
+        - message
+      properties:
+        error_type:
+          type: string
+          example: "InvalidProjectID"
+        message:
+          type: string
+          example: "项目ID不存在: stage3-p99-invalid"
+        details:
+          type: object
+          description: 错误详细信息（可选）
+
+    ProjectInfo:
+      type: object
+      required:
+        - id
+        - name
+        - stage_id
+        - difficulty
+        - estimated_hours
+      properties:
+        id:
+          type: string
+          example: "stage3-p01-healthcare"
+        name:
+          type: string
+          example: "朝阳医院指标搭建及销售数据汇总"
+        stage_id:
+          type: string
+          example: "stage3"
+        difficulty:
+          type: string
+          enum: [easy, medium, hard]
+          example: "easy"
+        estimated_hours:
+          type: object
+          properties:
+            min:
+              type: integer
+            max:
+              type: integer
+          example: {min: 0.5, max: 1}
+        frameworks:
+          type: array
+          items:
+            type: string
+          example: ["pandas", "numpy", "matplotlib"]
+
+    ProjectDetails:
+      allOf:
+        - $ref: '#/components/schemas/ProjectInfo'
+        - type: object
+          properties:
+            description:
+              type: string
+              description: 项目详细描述
+            datasets:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  size_mb:
+                    type: number
+            rubric:
+              type: object
+              description: 评分标准
+              properties:
+                id:
+                  type: string
+                total_points:
+                  type: integer
+                passing_score:
+                  type: integer
+                dimensions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      weight:
+                        type: number
+                quantitative_metrics:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      metric_id:
+                        type: string
+                      name:
+                        type: string
+                      expected_range:
+                        type: object
+                        properties:
+                          min:
+                            type: number
+                          max:
+                            type: number
+            deliverables:
+              type: array
+              items:
+                type: string
+              description: 交付物清单
+              example:
+                - "训练好的模型文件"
+                - "评估报告（outputs/reports/report.md）"
+                - "可视化图表（outputs/figures/）"
+
+    MetricDefinition:
+      type: object
+      required:
+        - id
+        - name
+        - category
+        - formula
+      properties:
+        id:
+          type: string
+          example: "metric-accuracy"
+        name:
+          type: string
+          example: "准确率"
+        name_en:
+          type: string
+          example: "Accuracy"
+        category:
+          type: string
+          enum: [classification, regression, clustering, nlp, cv, general]
+          example: "classification"
+        formula:
+          type: string
+          description: 公式（LaTeX格式）
+          example: "$\\frac{TP + TN}{TP + TN + FP + FN}$"
+        unit:
+          type: string
+          example: null
+        range:
+          type: object
+          properties:
+            min:
+              type: number
+            max:
+              type: number
+          example: {min: 0.0, max: 1.0}
+        higher_is_better:
+          type: boolean
+          example: true
+        interpretation:
+          type: string
+          description: 指标解释说明
+
+# Webhook通知（可选，用于异步评估完成后通知）
+  webhooks:
+    evaluationCompleted:
+      post:
+        summary: 评估完成回调
+        description: 当异步评估任务完成时，向注册的webhook URL发送POST请求
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  event:
+                    type: string
+                    example: "evaluation.completed"
+                  task_id:
+                    type: string
+                  result:
+                    $ref: '#/components/schemas/EvaluationResult'
+        responses:
+          '200':
+            description: Webhook接收成功
